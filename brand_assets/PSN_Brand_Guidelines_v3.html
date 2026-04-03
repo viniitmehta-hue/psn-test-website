@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pressplay Sports Network — Brand Guidelines v3.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* ─── Master Brand ─── */
+  --blue:#1033B8; --navy:#0A1F6B; --blue-mid:#1A4AD4; --blue-light:#4A72E8;
+  --blue-tint:#E8EFFE; --blue-pale:#F2F5FF; --blue-bright:#3B5BDB;
+  --gold:#F0A500; --gold-dark:#7A5200; --gold-light:#FFF3D6; --gold-mid:#E8960A;
+  --white:#FFFFFF; --off-white:#F8F9FF; --near-white:#F2F4FF;
+  --gray-50:#FAFBFF; --gray-100:#F5F5F7; --gray-200:#E4E4EA;
+  --gray-400:#AEAEB8; --gray-600:#6E6E7A; --gray-800:#2C2C34;
+  /* ─── Pressplay Bridge (Cobalt) ─── */
+  --bridge:#2563EB; --bridge-dark:#1D4ED8; --bridge-deeper:#1E3A8A;
+  --bridge-light:#93C5FD; --bridge-tint:#DBEAFE; --bridge-pale:#EFF6FF;
+  /* ─── PSN Sports (Amber) ─── */
+  --amber:#E8900A; --amber-dark:#B45309; --amber-deeper:#92400E;
+  --amber-light:#FCD34D; --amber-tint:#FEF3C7; --amber-pale:#FFFBEB;
+  /* ─── Typography ─── */
+  --fd:'Barlow Condensed',sans-serif;
+  --fb:'Barlow',sans-serif;
+  --fm:'DM Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--white);color:var(--gray-800);font-size:16px;line-height:1.6}
+
+/* ═══ STICKY NAV ═══ */
+.nav{position:sticky;top:0;z-index:200;background:var(--blue);display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:56px;border-bottom:3px solid var(--gold)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-play{width:18px;height:18px;background:var(--white);clip-path:polygon(10% 0%,100% 50%,10% 100%)}
+.nav-name{font-family:var(--fd);font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+.nav-divs{display:flex;gap:6px}
+.ndiv{font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:.06em;text-transform:uppercase}
+.ndiv-bridge{background:rgba(37,99,235,.25);color:var(--bridge-light)}
+.ndiv-sports{background:rgba(232,144,10,.25);color:var(--amber-light)}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:11px;color:rgba(255,255,255,.6);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--white)}
+
+/* ═══ COVER ═══ */
+.cover{background:var(--blue);min-height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.cov-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:60px 60px}
+.cov-circle-1{position:absolute;right:-100px;top:-100px;width:560px;height:560px;background:rgba(26,74,212,.35);border-radius:50%}
+.cov-circle-2{position:absolute;left:30%;bottom:-160px;width:400px;height:400px;background:rgba(240,165,0,.07);border-radius:50%}
+.cov-body{flex:1;display:grid;grid-template-columns:1fr 400px;padding:80px 80px 60px;position:relative;z-index:2;gap:56px;align-items:center}
+.cov-ey{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.cov-ey::before{content:"";display:block;width:28px;height:1.5px;background:var(--gold)}
+.cov-h1{font-family:var(--fd);font-size:clamp(62px,8.5vw,104px);font-weight:900;line-height:.88;text-transform:uppercase;color:var(--white);letter-spacing:-.01em;margin-bottom:20px}
+.cov-h1 .gold{color:var(--gold)}
+.cov-sub{font-size:17px;font-weight:300;color:rgba(255,255,255,.6);max-width:460px;line-height:1.65;margin-bottom:36px}
+.cov-meta{display:flex;gap:28px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)}
+.cov-meta-item{display:flex;flex-direction:column;gap:3px}
+.cov-meta-lbl{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.cov-meta-val{font-size:12px;font-weight:500;color:rgba(255,255,255,.8)}
+.cov-right{display:flex;flex-direction:column;gap:0;border-left:1px solid rgba(255,255,255,.1);padding-left:40px}
+.div-preview{flex:1;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.div-preview:last-child{border-bottom:none}
+.div-bar{width:36px;height:3px;border-radius:2px;margin-bottom:12px}
+.div-num{font-family:var(--fm);font-size:9px;color:rgba(255,255,255,.25);letter-spacing:.12em;margin-bottom:8px}
+.div-name{font-family:var(--fd);font-size:22px;font-weight:900;text-transform:uppercase;color:var(--white);letter-spacing:.02em;margin-bottom:4px;line-height:1}
+.div-sub{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:10px}
+.div-tagline{font-size:14px;font-weight:400;font-style:italic;color:rgba(255,255,255,.7);margin-bottom:14px;line-height:1.4}
+.div-tags{display:flex;gap:5px;flex-wrap:wrap}
+.div-tag{font-size:9px;font-weight:600;padding:2px 7px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.cov-bar{background:var(--navy);padding:14px 80px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.08)}
+.cov-bar-logo{display:flex;align-items:center;gap:9px}
+.cov-bar-play{width:17px;height:17px;background:var(--white);clip-path:polygon(10% 0%,100% 50%,10% 100%)}
+.cov-bar-name{font-family:var(--fd);font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--white)}
+.cov-bar-mid{font-size:12px;font-style:italic;color:rgba(255,255,255,.5)}
+.cov-bar-right{font-family:var(--fm);font-size:10px;color:rgba(255,255,255,.4)}
+
+/* ═══ SECTIONS ═══ */
+.sec{padding:88px 80px;border-bottom:1px solid var(--gray-200)}
+.sec-alt{background:var(--gray-50)}
+.sec-blue{background:var(--blue-pale)}
+.sec-navy{background:var(--navy);color:var(--white)}
+.sec-bridge{background:var(--bridge-pale)}
+.sec-sports{background:var(--amber-pale)}
+.sec-ey{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.sec-ey::before{content:"";display:block;width:18px;height:2px;background:currentColor}
+.ey-blue{color:var(--blue)} .ey-bridge{color:var(--bridge)} .ey-amber{color:var(--amber)} .ey-gold{color:var(--gold)} .ey-white{color:rgba(255,255,255,.6)}
+.sec-h{font-family:var(--fd);font-size:clamp(36px,5vw,56px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.92;margin-bottom:14px}
+.sec-intro{font-size:16px;font-weight:300;color:var(--gray-600);max-width:580px;line-height:1.7;margin-bottom:48px;padding-bottom:36px;border-bottom:1px solid var(--gray-200)}
+.sec-navy .sec-intro{color:rgba(255,255,255,.55);border-bottom-color:rgba(255,255,255,.1)}
+.sub-lbl{font-family:var(--fd);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.sub-lbl::before{content:"";display:block;width:16px;height:1.5px;background:currentColor}
+.sl-blue{color:var(--blue)} .sl-bridge{color:var(--bridge)} .sl-amber{color:var(--amber)} .sl-gold{color:var(--gold)} .sl-gray{color:var(--gray-600)}
+.divider{height:1px;background:var(--gray-200);margin:40px 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.four-col{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px}
+
+/* ═══ BRAND ARCHITECTURE ═══ */
+.arch{border:1px solid var(--gray-200);border-radius:14px;overflow:hidden}
+.arch-parent{background:var(--blue);padding:28px 36px;display:flex;align-items:center;justify-content:space-between}
+.arch-parent-l{display:flex;align-items:center;gap:16px}
+.arch-play{width:28px;height:28px;background:var(--white);clip-path:polygon(10% 0%,100% 50%,10% 100%)}
+.arch-brand{font-family:var(--fd);font-size:26px;font-weight:900;text-transform:uppercase;color:var(--white);letter-spacing:.02em;line-height:1}
+.arch-brand-sub{font-size:12px;color:rgba(255,255,255,.55);margin-top:3px}
+.arch-tl{font-family:var(--fd);font-size:16px;font-weight:700;text-transform:uppercase;color:var(--gold);letter-spacing:.04em}
+.arch-connector{background:var(--navy);padding:9px 36px;display:flex;align-items:center;gap:8px}
+.arch-conn-txt{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.arch-conn-line{flex:1;height:.5px;background:rgba(255,255,255,.12)}
+.arch-divs{display:grid;grid-template-columns:1fr 1fr}
+.arch-div{padding:28px 36px}
+.arch-div-bridge{background:var(--bridge-pale);border-right:1px solid var(--gray-200)}
+.arch-div-sports{background:var(--amber-pale)}
+.arch-div-bar{width:36px;height:4px;border-radius:2px;margin-bottom:14px}
+.arch-div-num{font-family:var(--fm);font-size:9px;color:var(--gray-400);margin-bottom:6px;letter-spacing:.1em}
+.arch-div-name{font-family:var(--fd);font-size:24px;font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:5px}
+.adn-bridge{color:var(--bridge-deeper)} .adn-sports{color:var(--amber-deeper)}
+.arch-div-cat{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-600);margin-bottom:10px}
+.arch-div-tl{font-size:15px;font-weight:500;font-style:italic;color:var(--gray-800);margin-bottom:12px;line-height:1.3}
+.arch-div-body{font-size:13px;color:var(--gray-600);line-height:1.65;margin-bottom:14px}
+.badge-row{display:flex;gap:5px;flex-wrap:wrap}
+.badge{font-size:9px;font-weight:600;padding:2px 7px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.b-bridge{background:var(--bridge-tint);color:var(--bridge-deeper)}
+.b-sports{background:var(--amber-tint);color:var(--amber-deeper)}
+.b-blue{background:var(--blue-tint);color:var(--navy)}
+
+/* ═══ TAGLINE BLOCKS ═══ */
+.tl-block{border-radius:12px;overflow:hidden;margin-bottom:20px}
+.tl-head{padding:18px 28px;display:flex;align-items:center;justify-content:space-between}
+.tl-head-blue{background:var(--blue)}
+.tl-head-bridge{background:var(--bridge-dark)}
+.tl-head-sports{background:var(--amber-dark)}
+.tl-head-navy{background:var(--navy)}
+.tl-name{font-family:var(--fd);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--white)}
+.tl-type{font-size:10px;color:rgba(255,255,255,.5)}
+.tl-body{padding:24px 28px;background:var(--white);border:1px solid var(--gray-200);border-top:none;border-radius:0 0 12px 12px}
+.tl-line{font-family:var(--fd);font-size:clamp(20px,3vw,34px);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:12px}
+.tl-blue{color:var(--blue)} .tl-bridge{color:var(--bridge-dark)} .tl-amber{color:var(--amber-dark)}
+.tl-rationale{font-size:14px;color:var(--gray-600);line-height:1.65;margin-bottom:10px}
+.tl-use{font-size:12px;color:var(--gray-600)} .tl-use strong{color:var(--gray-800);font-weight:600}
+
+/* ═══ LOGO SYSTEM ═══ */
+.logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.logo-tile{border:1px solid var(--gray-200);border-radius:10px;overflow:hidden}
+.logo-preview{height:140px;display:flex;align-items:center;justify-content:center;padding:16px}
+.lp-white{background:var(--white)} .lp-blue{background:var(--blue)} .lp-navy{background:var(--navy)}
+.lp-gray{background:var(--gray-100)} .lp-bridge{background:var(--bridge-dark)} .lp-sports{background:var(--amber-dark)}
+.lp-off{background:var(--off-white)} .lp-pale{background:var(--blue-pale)}
+.logo-foot{padding:12px 16px;border-top:1px solid var(--gray-200);background:var(--white)}
+.logo-foot-name{font-family:var(--fd);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.logo-foot-use{font-size:11px;color:var(--gray-600);line-height:1.4}
+
+/* Inline logo renders */
+.lr{display:inline-flex;align-items:center;gap:10px;border:2.5px solid currentColor;padding:9px 14px;border-radius:3px}
+.lr-blue{color:var(--blue)} .lr-white{color:var(--white)} .lr-bridge{color:var(--bridge-light)} .lr-amber{color:var(--amber-light)}
+.lr-play{width:24px;height:24px;clip-path:polygon(10% 0%,100% 50%,10% 100%);flex-shrink:0}
+.lrp-blue{background:var(--blue)} .lrp-white{background:var(--white)} .lrp-bridge{background:var(--bridge-light)} .lrp-amber{background:var(--amber-light)}
+.lr-text{font-family:var(--fd);font-weight:900;font-size:10px;text-transform:uppercase;letter-spacing:.03em;line-height:1.1}
+.lrt-blue{color:var(--blue)} .lrt-white{color:var(--white)}
+.lr-divline{font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-top:2px;opacity:.75}
+.lrd-bridge{color:var(--bridge-light)} .lrd-amber{color:var(--amber-light)} .lrd-gold{color:var(--gold)}
+.lr-gold{color:var(--gold)}
+
+/* PSN abbreviated */
+.psn-abbrev{font-family:var(--fd);font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:.04em}
+.pa-blue{color:var(--blue)} .pa-white{color:var(--white)}
+
+/* Misuse */
+.misuse-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.misuse-tile{border:1px solid var(--gray-200);border-radius:8px;overflow:hidden}
+.misuse-preview{height:80px;background:var(--gray-100);display:flex;align-items:center;justify-content:center;position:relative;font-family:var(--fd);font-weight:900;font-size:14px}
+.misuse-x{position:absolute;top:5px;right:5px;width:17px;height:17px;background:#DC2626;color:var(--white);border-radius:50%;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.misuse-label{padding:7px 10px;font-size:10px;color:var(--gray-600);border-top:1px solid var(--gray-200);line-height:1.4}
+
+/* ═══ COLOR SYSTEM ═══ */
+.swatch-row{display:flex;gap:12px;margin-bottom:12px}
+.swatch{flex:1;border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,.06)}
+.swatch-block{height:72px}
+.swatch-info{padding:10px 12px;background:var(--white)}
+.sw-name{font-family:var(--fd);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.sw-hex{font-family:var(--fm);font-size:10px;color:var(--gray-600);margin-bottom:1px}
+.sw-rgb{font-family:var(--fm);font-size:9px;color:var(--gray-400);margin-bottom:3px}
+.sw-role{font-size:10px;color:var(--gray-600);line-height:1.4}
+.tier-lbl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tier-lbl::before{content:"";display:block;width:14px;height:1.5px;background:currentColor}
+.col-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:20px}
+.col-table th{font-family:var(--fd);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:9px 12px;text-align:left;border-bottom:2px solid var(--blue);color:var(--blue)}
+.col-table td{padding:9px 12px;border-bottom:.5px solid var(--gray-200);vertical-align:top;line-height:1.45}
+.col-table tr:last-child td{border-bottom:none}
+.col-table tr:hover td{background:var(--blue-pale)}
+.cdot{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;margin-right:6px;border:.5px solid rgba(0,0,0,.08)}
+
+/* ═══ TYPOGRAPHY ═══ */
+.type-card{border:1px solid var(--gray-200);border-radius:10px;overflow:hidden;margin-bottom:16px}
+.tc-head{padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+.tch-blue{background:var(--blue)} .tch-navy{background:var(--navy)} .tch-bridge{background:var(--bridge-dark)} .tch-sports{background:var(--amber-dark)}
+.tc-name{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+.tc-role{font-size:10px;color:rgba(255,255,255,.5)}
+.tc-body{padding:20px;background:var(--white)}
+.type-scale{border:1px solid var(--gray-200);border-radius:10px;overflow:hidden}
+.ts-row{display:flex;align-items:baseline;gap:14px;padding:9px 18px;border-bottom:.5px solid var(--gray-200)}
+.ts-row:last-child{border-bottom:none}
+.ts-lbl{font-family:var(--fm);font-size:9px;color:var(--gray-400);min-width:68px;flex-shrink:0}
+.ts-spec{font-family:var(--fm);font-size:9px;color:var(--blue);min-width:152px;flex-shrink:0}
+
+/* ═══ VOICE ═══ */
+.voice-pair{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--gray-200);border-radius:10px;overflow:hidden;margin-bottom:20px}
+.vc-bridge{background:var(--bridge-pale);border-right:1px solid var(--gray-200);padding:24px 28px}
+.vc-sports{background:var(--amber-pale);padding:24px 28px}
+.vc-lbl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+.vcl-bridge{color:var(--bridge)} .vcl-sports{color:var(--amber)}
+.v-trait{margin-bottom:12px;padding-bottom:12px;border-bottom:.5px solid rgba(0,0,0,.08)}
+.v-trait:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.vt-name{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.vtn-bridge{color:var(--bridge-deeper)} .vtn-sports{color:var(--amber-deeper)}
+.vt-body{font-size:12px;color:var(--gray-600);line-height:1.55}
+.copy-ex{border:1px solid var(--gray-200);border-radius:10px;overflow:hidden;margin-bottom:12px}
+.cex-head{padding:8px 14px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+.ceh-bridge{background:var(--bridge)} .ceh-sports{background:var(--amber)}
+.cex-body{display:grid;grid-template-columns:1fr 1fr}
+.cx-bad{padding:12px 14px;background:#FFF8F8;border-right:.5px solid var(--gray-200)}
+.cx-good{padding:12px 14px;background:#F8FFF9}
+.cx-tag{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.cxt-bad{color:#B91C1C} .cxt-good{color:#15803D}
+.cx-text{font-size:12px;line-height:1.55}
+
+/* ═══ WEBSITE ARCHITECTURE ═══ */
+.site-map{border:1px solid var(--gray-200);border-radius:12px;overflow:hidden;margin-bottom:28px}
+.sm-head{background:var(--navy);padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.sm-title{font-family:var(--fd);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--white)}
+.sm-note{font-family:var(--fm);font-size:10px;color:rgba(255,255,255,.35)}
+.site-sec{border-bottom:.5px solid var(--gray-200)}
+.site-sec:last-child{border-bottom:none}
+.ss-head{padding:12px 24px;display:flex;align-items:center;justify-content:space-between}
+.ssh-blue{background:var(--blue)} .ssh-bridge{background:var(--bridge-dark)} .ssh-sports{background:var(--amber-dark)} .ssh-gray{background:var(--gray-100)}
+.ss-title{font-family:var(--fd);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.sst-white{color:var(--white)} .sst-dark{color:var(--gray-800)}
+.ss-anch{font-family:var(--fm);font-size:9px;color:rgba(255,255,255,.4)}
+.ss-anch-dark{font-family:var(--fm);font-size:9px;color:var(--gray-400)}
+.ss-modules{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:.5px solid rgba(0,0,0,.06)}
+.ss-mod{padding:11px 20px;border-right:.5px solid var(--gray-200)}
+.ss-mod:last-child{border-right:none}
+.ss-mod-name{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-family:var(--fd);margin-bottom:3px}
+.ss-mod-spec{font-size:10px;color:var(--gray-600);line-height:1.4}
+
+/* ═══ COMPONENT SPECS ═══ */
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.comp-card{border:1px solid var(--gray-200);border-radius:10px;overflow:hidden}
+.comp-head{padding:10px 16px;font-family:var(--fd);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--white)}
+.ch-blue{background:var(--blue)} .ch-bridge{background:var(--bridge)} .ch-sports{background:var(--amber)} .ch-navy{background:var(--navy)}
+.comp-body{padding:14px 16px;background:var(--white)}
+.comp-spec{font-size:12px;color:var(--gray-600);line-height:1.6}
+.comp-spec code{font-family:var(--fm);font-size:10px;background:var(--gray-100);padding:1px 5px;border-radius:3px;color:var(--blue)}
+
+/* ═══ INFO BLOCKS ═══ */
+.info-block{border-left:3px solid;padding:13px 16px;border-radius:0 8px 8px 0;margin-bottom:10px}
+.ib-blue{background:var(--blue-pale);border-left-color:var(--blue)}
+.ib-bridge{background:var(--bridge-tint);border-left-color:var(--bridge)}
+.ib-sports{background:var(--amber-tint);border-left-color:var(--amber)}
+.ib-gold{background:var(--gold-light);border-left-color:var(--gold)}
+.ib-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.ibt-blue{color:var(--navy)} .ibt-bridge{color:var(--bridge-deeper)} .ibt-sports{color:var(--amber-deeper)} .ibt-gold{color:var(--gold-dark)}
+.ib-body{font-size:12px;color:var(--gray-600);line-height:1.55}
+
+/* ═══ SPEC TABLE ═══ */
+.spec-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:16px}
+.spec-table th{font-family:var(--fd);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:9px 12px;text-align:left;color:var(--blue);border-bottom:2px solid var(--blue)}
+.spec-table td{padding:9px 12px;border-bottom:.5px solid var(--gray-200);vertical-align:top;line-height:1.45}
+.spec-table tr:last-child td{border-bottom:none}
+.spec-table tr:hover td{background:var(--blue-pale)}
+.chip{font-family:var(--fm);font-size:10px;background:var(--gray-100);padding:1px 6px;border-radius:3px}
+.chip-bridge{background:var(--bridge-tint);color:var(--bridge-deeper)}
+.chip-sports{background:var(--amber-tint);color:var(--amber-deeper)}
+.chip-blue{background:var(--blue-tint);color:var(--navy)}
+
+/* ═══ ASSET CHECKLIST ═══ */
+.checklist{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cl-col{border:1px solid var(--gray-200);border-radius:10px;overflow:hidden}
+.cl-head{padding:12px 18px}
+.clh-blue{background:var(--blue)} .clh-bridge{background:var(--bridge-dark)} .clh-sports{background:var(--amber-dark)} .clh-navy{background:var(--navy)}
+.cl-head-title{font-family:var(--fd);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--white)}
+.cl-items{padding:4px 0}
+.cl-item{display:flex;align-items:flex-start;gap:10px;padding:7px 16px;border-bottom:.5px solid var(--gray-200);font-size:12px;color:var(--gray-800);line-height:1.45}
+.cl-item:last-child{border-bottom:none}
+.cl-item::before{content:"";display:block;width:14px;height:14px;border:1.5px solid var(--gray-300);border-radius:3px;margin-top:1px;flex-shrink:0}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--navy);padding:56px 80px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:28px}
+.footer-brand-name{font-family:var(--fd);font-size:20px;font-weight:900;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:6px}
+.footer-brand-tl{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:20px}
+.footer-div-chips{display:flex;flex-direction:column;gap:6px}
+.fdc{font-size:11px;font-weight:600;padding:4px 10px;border-radius:5px;display:inline-block;letter-spacing:.04em;text-transform:uppercase}
+.fdc-bridge{background:rgba(37,99,235,.2);color:var(--bridge-light)}
+.fdc-sports{background:rgba(232,144,10,.2);color:var(--amber-light)}
+.footer-col-title{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.footer-col-item{font-size:11px;color:rgba(255,255,255,.45);margin-bottom:6px;line-height:1.45}
+.footer-col-item strong{color:rgba(255,255,255,.8);font-weight:500}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between}
+.footer-legal{font-size:10px;color:rgba(255,255,255,.2)}
+.footer-docid{font-family:var(--fm);font-size:10px;color:rgba(255,255,255,.15)}
+</style>
+</head>
+<body>
+<!-- ════ NAV ════ -->
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="nav-play"></div>
+    <span class="nav-name">PSN Brand Guidelines v3.0</span>
+  </div>
+  <div class="nav-divs">
+    <span class="ndiv ndiv-bridge">Pressplay Bridge</span>
+    <span class="ndiv ndiv-sports">PSN Sports</span>
+  </div>
+  <nav class="nav-links">
+    <a href="#architecture">Architecture</a>
+    <a href="#taglines">Taglines</a>
+    <a href="#logo">Logo</a>
+    <a href="#color">Color</a>
+    <a href="#type">Type</a>
+    <a href="#voice">Voice</a>
+    <a href="#website">Website</a>
+    <a href="#applications">Applications</a>
+    <a href="#assets">Assets</a>
+  </nav>
+</nav>
+
+<!-- ════ COVER ════ -->
+<div class="cover">
+  <div class="cov-grid"></div>
+  <div class="cov-circle-1"></div>
+  <div class="cov-circle-2"></div>
+  <div class="cov-body">
+    <div>
+      <div class="cov-ey">Brand Guidelines &mdash; Version 3.0 &mdash; 2025</div>
+      <h1 class="cov-h1">Press<span class="gold">play</span><br>Sports<br>Network</h1>
+      <p class="cov-sub">One parent brand. Two focused divisions. The complete identity system for the sports business network connecting India &amp; the Middle East to the world.</p>
+      <div class="cov-meta">
+        <div class="cov-meta-item"><span class="cov-meta-lbl">Version</span><span class="cov-meta-val">3.0 &mdash; 2025</span></div>
+        <div class="cov-meta-item"><span class="cov-meta-lbl">HQ</span><span class="cov-meta-val">Dubai, UAE</span></div>
+        <div class="cov-meta-item"><span class="cov-meta-lbl">Markets</span><span class="cov-meta-val">India &middot; MENA &middot; APAC</span></div>
+        <div class="cov-meta-item"><span class="cov-meta-lbl">Document</span><span class="cov-meta-val">DOC-PSN-BG-003</span></div>
+      </div>
+    </div>
+    <div class="cov-right">
+      <div class="div-preview">
+        <div class="div-num">Division 01 of 02</div>
+        <div class="div-bar" style="background:var(--bridge)"></div>
+        <div class="div-name">Pressplay Bridge</div>
+        <div class="div-sub">Sports Tech Market Entry</div>
+        <div class="div-tagline">&ldquo;Where sports tech meets its market.&rdquo;</div>
+        <div class="div-tags">
+          <span class="div-tag" style="background:rgba(37,99,235,.2);color:var(--bridge-light)">India</span>
+          <span class="div-tag" style="background:rgba(37,99,235,.2);color:var(--bridge-light)">MENA</span>
+          <span class="div-tag" style="background:rgba(37,99,235,.2);color:var(--bridge-light)">APAC</span>
+        </div>
+      </div>
+      <div class="div-preview">
+        <div class="div-num">Division 02 of 02</div>
+        <div class="div-bar" style="background:var(--amber)"></div>
+        <div class="div-name">PSN Sports</div>
+        <div class="div-sub">Sponsorships &amp; Sports Marketing</div>
+        <div class="div-tagline">&ldquo;One brief. Every sports screen.&rdquo;</div>
+        <div class="div-tags">
+          <span class="div-tag" style="background:rgba(232,144,10,.2);color:var(--amber-light)">Brands</span>
+          <span class="div-tag" style="background:rgba(232,144,10,.2);color:var(--amber-light)">Agencies</span>
+          <span class="div-tag" style="background:rgba(232,144,10,.2);color:var(--amber-light)">Global Streamers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cov-bar">
+    <div class="cov-bar-logo">
+      <div class="cov-bar-play"></div>
+      <span class="cov-bar-name">Pressplay Sports Network</span>
+    </div>
+    <span class="cov-bar-mid">&ldquo;The sports business network.&rdquo;</span>
+    <span class="cov-bar-right">DOC-PSN-BG-003 &middot; v3.0 &middot; vinitm@gmail.com</span>
+  </div>
+</div>
+
+<!-- ════ 01 BRAND ARCHITECTURE ════ -->
+<section class="sec" id="architecture">
+  <div class="sec-ey ey-blue">01 &mdash; Brand Architecture</div>
+  <h2 class="sec-h">One network.<br>Two divisions.</h2>
+  <p class="sec-intro">Pressplay Sports Network is the parent brand housing two commercially distinct divisions. Both share the master logo, PSN Blue, and brand voice. Each division has its own audience, tagline, and accent color &mdash; creating clear identity without fragmenting the brand.</p>
+
+  <div class="arch">
+    <div class="arch-parent">
+      <div class="arch-parent-l">
+        <div class="arch-play"></div>
+        <div>
+          <div class="arch-brand">Pressplay Sports Network</div>
+          <div class="arch-brand-sub">The sports business network for India, the Middle East &amp; beyond &middot; Dubai, UAE</div>
+        </div>
+      </div>
+      <div class="arch-tl">&ldquo;The sports business network.&rdquo;</div>
+    </div>
+    <div class="arch-connector">
+      <span class="arch-conn-txt">Two divisions</span>
+      <div class="arch-conn-line"></div>
+      <span class="arch-conn-txt">Shared: Logo &middot; PSN Blue &middot; Gold accent &middot; Barlow typography &middot; Brand voice &middot; Website URL</span>
+    </div>
+    <div class="arch-divs">
+      <div class="arch-div arch-div-bridge">
+        <div class="arch-div-bar" style="background:var(--bridge)"></div>
+        <div class="arch-div-num">Division 01</div>
+        <div class="arch-div-name adn-bridge">Pressplay Bridge</div>
+        <div class="arch-div-cat">Sports Tech Market Entry &amp; BD</div>
+        <div class="arch-div-tl">&ldquo;Where sports tech meets its market.&rdquo;</div>
+        <div class="arch-div-body">Sports tech startups and scaleups from the US, Europe, and Australia entering India, the Middle East, and APAC. Pressplay Bridge is their exclusive BD partner &mdash; opening doors in 90 days that take companies years to find alone.</div>
+        <div class="badge-row">
+          <span class="badge b-bridge">India</span>
+          <span class="badge b-bridge">MENA</span>
+          <span class="badge b-bridge">APAC</span>
+          <span class="badge b-blue">US &middot; EU &middot; AU founders</span>
+        </div>
+      </div>
+      <div class="arch-div arch-div-sports">
+        <div class="arch-div-bar" style="background:var(--amber)"></div>
+        <div class="arch-div-num">Division 02</div>
+        <div class="arch-div-name adn-sports">PSN Sports</div>
+        <div class="arch-div-cat">Sponsorships &amp; Sports Marketing</div>
+        <div class="arch-div-tl">&ldquo;One brief. Every sports screen.&rdquo;</div>
+        <div class="arch-div-body">Brands and agencies seeking to partner with live sports streamers globally, with a focus on India and the Middle East. PSN Sports packages cross-platform sponsorships across JioHotstar, DAZN, Shahid, FanCode, StarzPlay, and Dream11.</div>
+        <div class="badge-row">
+          <span class="badge b-sports">Brands</span>
+          <span class="badge b-sports">Agencies</span>
+          <span class="badge b-sports">$50k&ndash;$500k+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="sub-lbl sl-blue">How the divisions reinforce each other</div>
+  <div class="three-col">
+    <div class="info-block ib-blue"><div class="ib-title ibt-blue">Shared publisher network</div><div class="ib-body">PSN Sports&rsquo; publisher relationships (JioHotstar, DAZN, etc.) are live buyer introductions for Pressplay Bridge startups. One commercial network serves both revenue lines simultaneously.</div></div>
+    <div class="info-block ib-bridge"><div class="ib-title ibt-bridge">Bridge feeds Sports</div><div class="ib-body">Sports tech products onboarded via Pressplay Bridge become technology layers in PSN Sports campaigns &mdash; AI highlights, virtual branding, measurement, and data tools.</div></div>
+    <div class="info-block ib-gold"><div class="ib-title ibt-gold">Both feed Pressplay Capital</div><div class="ib-body">Every startup relationship generates deal flow for Pressplay Capital, the early-stage sports tech fund. Commercial proof-of-concept before the investment thesis &mdash; uniquely de-risked.</div></div>
+  </div>
+</section>
+
+<!-- ════ 02 TAGLINES ════ -->
+<section class="sec sec-alt" id="taglines">
+  <div class="sec-ey ey-blue">02 &mdash; Taglines &amp; Messaging</div>
+  <h2 class="sec-h">Three lines.<br>Total clarity.</h2>
+  <p class="sec-intro">Three taglines &mdash; one for the parent brand, one per division. Each is precise, ownable, and written to work at any size from a business card to a conference stage. They are never abbreviated, swapped, or merged.</p>
+
+  <div class="tl-block">
+    <div class="tl-head tl-head-blue"><span class="tl-name">Pressplay Sports Network &mdash; Parent brand</span><span class="tl-type">Master tagline &middot; Use when both divisions are represented</span></div>
+    <div class="tl-body">
+      <div class="tl-line tl-blue">&ldquo;The sports business network.&rdquo;</div>
+      <div class="tl-rationale">Positions PSN as infrastructure &mdash; a network, not a service. Works for both BD and sports marketing audiences without favouring either. Deliberately broad. The word &ldquo;network&rdquo; carries dual meaning: the publisher network (supply side) and the professional relationships PSN is built on (people side).</div>
+      <div class="tl-use"><strong>Use on:</strong> Homepage hero, email signatures, business cards, LinkedIn company banner, conference stands, any material where the full PSN brand is represented without division distinction.</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="tl-block" style="margin-bottom:0">
+      <div class="tl-head tl-head-bridge"><span class="tl-name">Pressplay Bridge &mdash; Division 01</span><span class="tl-type">Division tagline &middot; Sports tech market entry</span></div>
+      <div class="tl-body">
+        <div class="tl-line tl-bridge">&ldquo;Where sports tech meets its market.&rdquo;</div>
+        <div class="tl-rationale" style="margin-top:10px">A meeting point, not a one-way journey. &ldquo;Meets its market&rdquo; implies a perfect match, not a hard sell. The &ldquo;Bridge&rdquo; name and this tagline work in exact harmony &mdash; we are the crossing point between innovation and the markets ready for it.</div>
+        <div class="tl-use"><strong>Use on:</strong> Bridge section of website, startup outreach, Bridge pitch deck covers, LinkedIn posts about market entry, Dubai soft-landing materials, BD proposals.</div>
+      </div>
+    </div>
+    <div class="tl-block" style="margin-bottom:0">
+      <div class="tl-head tl-head-sports"><span class="tl-name">PSN Sports &mdash; Division 02</span><span class="tl-type">Division tagline &middot; Sponsorships &amp; sports marketing</span></div>
+      <div class="tl-body">
+        <div class="tl-line tl-amber">&ldquo;One brief. Every sports screen.&rdquo;</div>
+        <div class="tl-rationale" style="margin-top:10px">The entire PSN Sports value proposition in five words. &ldquo;One brief&rdquo; is the pain point solved. &ldquo;Every sports screen&rdquo; is the scale offered. Short sentences mirror the energy of match commentary. Immediately understood by any brand CMO.</div>
+        <div class="tl-use"><strong>Use on:</strong> PSN Sports section of website, brand outreach, media kit covers, social content, publisher materials, any context where sponsorships/media buying is the subject.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="sub-lbl sl-blue">Tagline rules &mdash; non-negotiable</div>
+  <div class="four-col">
+    <div class="info-block ib-blue"><div class="ib-title ibt-blue">Always in quotes</div><div class="ib-body">All three taglines are set with opening and closing typographic quotation marks (&ldquo; &rdquo;). Never straight quotes. Never removed.</div></div>
+    <div class="info-block ib-blue"><div class="ib-title ibt-blue">Never swap them</div><div class="ib-body">Each tagline belongs to its context. Never use the Bridge tagline in a sponsorships proposal or the PSN Sports tagline in a startup pitch.</div></div>
+    <div class="info-block ib-blue"><div class="ib-title ibt-blue">Typography</div><div class="ib-body">Always Barlow Condensed 700&ndash;900, ALL CAPS in headlines. In body copy, sentence case is permitted for inline references.</div></div>
+    <div class="info-block ib-gold"><div class="ib-title ibt-gold">Never truncate</div><div class="ib-body">Never shorten a tagline to fit a layout. Reduce the font size before cutting a word. The tagline is always complete.</div></div>
+  </div>
+</section>
+
+<!-- ════ 03 LOGO SYSTEM ════ -->
+<section class="sec" id="logo">
+  <div class="sec-ey ey-blue">03 &mdash; Logo System</div>
+  <h2 class="sec-h">The mark and<br>its variants.</h2>
+  <p class="sec-intro">The PSN logo exists in eight approved variants covering every legitimate context. The existing logo files (play icon + rectangular frame + wordmark) are the baseline. Division variants add a sub-line only &mdash; never alter the core mark.</p>
+
+  <div class="sub-lbl sl-blue">Master logo &mdash; all variants</div>
+  <div class="logo-grid">
+    <div class="logo-tile">
+      <div class="logo-preview lp-off">
+        <div class="lr lr-blue">
+          <div class="lr-play lrp-blue"></div>
+          <div class="lr-text lrt-blue">Pressplay Sports<br>Network</div>
+        </div>
+      </div>
+      <div class="logo-foot"><div class="logo-foot-name">Primary &mdash; on light</div><div class="logo-foot-use">Default. All proposals, documents, website header on white or off-white.</div></div>
+    </div>
+    <div class="logo-tile">
+      <div class="logo-preview lp-blue">
+        <div class="lr lr-white">
+          <div class="lr-play lrp-white"></div>
+          <div class="lr-text lrt-white">Pressplay Sports<br>Network</div>
+        </div>
+      </div>
+      <div class="logo-foot"><div class="logo-foot-name">Reversed &mdash; on PSN Blue</div><div class="logo-foot-use">Navigation bar, blue section backgrounds, cover slides.</div></div>
+    </div>
+    <div class="logo-tile">
+      <div class="logo-preview lp-navy">
+        <div class="lr lr-white">
+          <div class="lr-play lrp-white"></div>
+          <div class="lr-text lrt-white">Pressplay Sports<br>Network</div>
+        </div>
+      </div>
+      <div class="logo-foot"><div class="logo-foot-name">Reversed &mdash; on Navy</div><div class="logo-foot-use">Footer, navy backgrounds, dark presentation slides.</div></div>
+    </div>
+    <div class="logo-tile">
+      <div class="logo-preview lp-bridge">
+        <div class="lr lr-bridge">
+          <div class="lr-play lrp-bridge"></div>
+          <div>
+            <div class="lr-text lrt-white">Pressplay Sports<br>Network</div>
+            <div class="lr-divline lrd-bridge">Pressplay Bridge</div>
+          </div>
+        </div>
+      </div>
+      <div class="logo-foot"><div class="logo-foot-name">Bridge division &mdash; on cobalt</div><div class="logo-foot-use">Bridge section headers, pitch decks, Bridge email headers.</div></div>
+    </div>
+    <div class="logo-tile">
+      <div class="logo-preview lp-sports">
+        <div class="lr lr-amber">
+          <div class="lr-play lrp-amber"></div>
+          <div>
+            <div class="lr-text lrt-white">Pressplay Sports<br>Network</div>
+            <div class="lr-divline lrd-amber">PSN Sports</div>
+          </div>
+        </div>
+      </div>
+      <div class="logo-foot"><div class="logo-foot-name">PSN Sports division &mdash; on amber</div><div class="logo-foot-use">PSN Sports section headers, brand proposals, media kit covers.</div></div>
+    </div>
+    <div class="logo-tile">
+      <div class="logo-preview lp-pale">
+        <div style="display:inline-flex;align-items:center;gap:8px;border:2.5px solid var(--blue);padding:7px 14px;border-radius:3px">
+          <div style="width:18px;height:18px;background:var(--blue);clip-path:polygon(10% 0%,100% 50%,10% 100%);flex-shrink:0"></div>
+          <span class="psn-abbrev pa-blue">PSN</span>
+        </div>
+      </div>
+      <div class="logo-foot"><div class="logo-foot-name">Abbreviated PSN mark</div><div class="logo-foot-use">App icons, social avatars, WhatsApp group icon, favicon, small-format ads.</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="sub-lbl sl-blue">Clear zone &amp; minimum sizes</div>
+  <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap">
+    <div>
+      <div style="border:2px dashed var(--bridge);padding:20px;background:var(--bridge-tint);display:inline-block;border-radius:4px">
+        <div class="lr lr-blue" style="background:var(--white);padding:8px 12px">
+          <div class="lr-play lrp-blue" style="width:18px;height:18px"></div>
+          <div class="lr-text lrt-blue" style="font-size:8px">Pressplay Sports<br>Network</div>
+        </div>
+      </div>
+      <div style="font-family:var(--fm);font-size:10px;color:var(--bridge);text-align:center;margin-top:8px">Clear zone = 1&times; height of letter &ldquo;P&rdquo;</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:10px">
+      <div class="info-block ib-blue"><div class="ib-title ibt-blue">Digital minimum sizes</div><div class="ib-body">Primary logo: 140px wide minimum &middot; PSN mark: 32px minimum &middot; Clear zone: 16px all sides at all sizes.</div></div>
+      <div class="info-block ib-blue"><div class="ib-title ibt-blue">Print minimum sizes</div><div class="ib-body">Primary logo: 35mm minimum width &middot; PSN mark: 10mm minimum &middot; Clear zone: 5mm at A4, scaled proportionally.</div></div>
+      <div class="info-block ib-gold"><div class="ib-title ibt-gold">Division sub-line rule</div><div class="ib-body">The sub-lines &ldquo;Pressplay Bridge&rdquo; and &ldquo;PSN Sports&rdquo; appear only in division-specific variants. Never add them to the master blue/white/navy logo.</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="sub-lbl sl-blue">Logo misuse &mdash; never do this</div>
+  <div class="misuse-grid">
+    <div class="misuse-tile"><div class="misuse-preview" style="color:var(--amber)"><span style="font-family:var(--fd);font-weight:900;text-transform:uppercase">PSN</span><div class="misuse-x">&#x2715;</div></div><div class="misuse-label">Never recolor the master logo. Blue, white, or navy only &mdash; no division accent colors on master mark.</div></div>
+    <div class="misuse-tile"><div class="misuse-preview"><span style="font-family:var(--fd);font-weight:900;text-transform:uppercase;color:var(--blue);transform:scaleX(1.5);display:block">PSN</span><div class="misuse-x">&#x2715;</div></div><div class="misuse-label">Never stretch, distort, or skew any logo element.</div></div>
+    <div class="misuse-tile"><div class="misuse-preview" style="background:linear-gradient(135deg,#1033B8,#2563EB)"><span style="font-family:var(--fd);font-weight:900;text-transform:uppercase;color:var(--white)">PSN</span><div class="misuse-x">&#x2715;</div></div><div class="misuse-label">Never place on gradient, pattern, or photographic backgrounds without sufficient contrast.</div></div>
+    <div class="misuse-tile"><div class="misuse-preview"><span style="font-family:var(--fd);font-weight:900;text-transform:uppercase;color:var(--blue);opacity:.25">PSN</span><div class="misuse-x">&#x2715;</div></div><div class="misuse-label">Never ghost, fade, or use at reduced opacity as a watermark.</div></div>
+    <div class="misuse-tile"><div class="misuse-preview"><span style="font-family:var(--fd);font-weight:900;text-transform:uppercase;color:var(--blue);transform:rotate(-15deg);display:block">PSN</span><div class="misuse-x">&#x2715;</div></div><div class="misuse-label">Never rotate or angle the logo in any direction.</div></div>
+    <div class="misuse-tile"><div class="misuse-preview"><span style="font-family:Arial,sans-serif;font-weight:900;text-transform:uppercase;color:var(--blue)">PSN</span><div class="misuse-x">&#x2715;</div></div><div class="misuse-label">Never recreate in a different typeface. Use only the approved logo files.</div></div>
+  </div>
+</section>
+
+<!-- ════ 04 COLOR SYSTEM ════ -->
+<section class="sec sec-alt" id="color">
+  <div class="sec-ey ey-blue">04 &mdash; Color System</div>
+  <h2 class="sec-h">One master.<br>Two accents.<br>No black.</h2>
+  <p class="sec-intro">PSN Blue is the master brand color &mdash; the constant across every touchpoint. Gold is the master accent. Two division accent colors (Cobalt Blue for Pressplay Bridge, Amber for PSN Sports) add identity depth without overriding the parent. No black, no green, no red, no pink anywhere in the system.</p>
+
+  <div class="tier-lbl" style="color:var(--blue);margin-bottom:8px">Master brand palette</div>
+  <div class="swatch-row">
+    <div class="swatch">
+      <div class="swatch-block" style="background:#1033B8"></div>
+      <div class="swatch-info"><div class="sw-name" style="color:var(--navy)">PSN Blue</div><div class="sw-hex">HEX #1033B8</div><div class="sw-rgb">RGB 16 / 51 / 184</div><div class="sw-role">Master brand color. Logo, nav bar, primary CTAs, all headline backgrounds, the defining blue of PSN.</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#0A1F6B"></div>
+      <div class="swatch-info"><div class="sw-name" style="color:var(--navy)">PSN Navy</div><div class="sw-hex">HEX #0A1F6B</div><div class="sw-rgb">RGB 10 / 31 / 107</div><div class="sw-role">Deep backgrounds. Replaces black throughout. Footer, dark section headers, nav hover states. Pantone 2748C approx.</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#F0A500"></div>
+      <div class="swatch-info"><div class="sw-name" style="color:var(--gold-dark)">PSN Gold</div><div class="sw-hex">HEX #F0A500</div><div class="sw-rgb">RGB 240 / 165 / 0</div><div class="sw-role">Master accent. CTAs on blue/navy, tagline highlights, award callouts. Never dominant &mdash; max 10% of any layout. Pantone 7549C approx.</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#FFFFFF;border-bottom:1px solid var(--gray-200)"></div>
+      <div class="swatch-info"><div class="sw-name">PSN White</div><div class="sw-hex">HEX #FFFFFF</div><div class="sw-rgb">RGB 255 / 255 / 255</div><div class="sw-role">Primary background. Documents, website, all light-mode contexts.</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#F8F9FF"></div>
+      <div class="swatch-info"><div class="sw-name" style="color:var(--navy)">PSN Off-white</div><div class="sw-hex">HEX #F8F9FF</div><div class="sw-rgb">RGB 248 / 249 / 255</div><div class="sw-role">Alternating section backgrounds. Slightly blue-tinted white that ties sections to the brand palette.</div></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#E8EFFE"></div>
+      <div class="swatch-info"><div class="sw-name" style="color:var(--navy)">PSN Blue Tint</div><div class="sw-hex">HEX #E8EFFE</div><div class="sw-rgb">RGB 232 / 239 / 254</div><div class="sw-role">Information panels, card fills, hover backgrounds, blue-accent contexts on light surfaces.</div></div>
+    </div>
+  </div>
+
+  <div class="tier-lbl" style="color:var(--bridge);margin-bottom:8px;margin-top:20px">Pressplay Bridge accent &mdash; Cobalt Blue</div>
+  <div class="swatch-row">
+    <div class="swatch"><div class="swatch-block" style="background:#2563EB"></div><div class="swatch-info"><div class="sw-name" style="color:var(--bridge-deeper)">Bridge Cobalt</div><div class="sw-hex">HEX #2563EB</div><div class="sw-rgb">RGB 37 / 99 / 235</div><div class="sw-role">Primary Bridge accent. Section identifier, CTAs in Bridge section, badges, accent bars, data highlights.</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#1D4ED8"></div><div class="swatch-info"><div class="sw-name" style="color:var(--bridge-deeper)">Bridge Cobalt Dark</div><div class="sw-hex">HEX #1D4ED8</div><div class="sw-rgb">RGB 29 / 78 / 216</div><div class="sw-role">Hover states for cobalt CTAs. Button pressed states. Border emphasis in Bridge contexts.</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#1E3A8A"></div><div class="swatch-info"><div class="sw-name" style="color:var(--bridge-light)">Bridge Deeper</div><div class="sw-hex">HEX #1E3A8A</div><div class="sw-rgb">RGB 30 / 58 / 138</div><div class="sw-role">Section hero backgrounds for Bridge. Replaces black &mdash; deep cobalt that is clearly lighter than navy. Text headings on light.</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#93C5FD"></div><div class="swatch-info"><div class="sw-name" style="color:var(--bridge-deeper)">Bridge Light</div><div class="sw-hex">HEX #93C5FD</div><div class="sw-rgb">RGB 147 / 197 / 253</div><div class="sw-role">Text and taglines on deep cobalt backgrounds. Logo division sub-line on Bridge hero sections.</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#DBEAFE"></div><div class="swatch-info"><div class="sw-name" style="color:var(--bridge-deeper)">Bridge Tint</div><div class="sw-hex">HEX #DBEAFE</div><div class="sw-rgb">RGB 219 / 234 / 254</div><div class="sw-role">Card fills and section backgrounds within Bridge section. Distinguishes Bridge from PSN Blue Tint.</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#EFF6FF"></div><div class="swatch-info"><div class="sw-name" style="color:var(--bridge-deeper)">Bridge Pale</div><div class="sw-hex">HEX #EFF6FF</div><div class="sw-rgb">RGB 239 / 246 / 255</div><div class="sw-role">Lightest Bridge context. Section background for overview pages, very subtle Bridge identity.</div></div></div>
+  </div>
+
+  <div class="tier-lbl" style="color:var(--amber);margin-bottom:8px;margin-top:20px">PSN Sports accent &mdash; Amber</div>
+  <div class="swatch-row">
+    <div class="swatch"><div class="swatch-block" style="background:#E8900A"></div><div class="swatch-info"><div class="sw-name" style="color:var(--amber-deeper)">Sports Amber</div><div class="sw-hex">HEX #E8900A</div><div class="sw-rgb">RGB 232 / 144 / 10</div><div class="sw-role">Primary PSN Sports accent. Section identifier, CTAs in Sports section, badges, accent bars. Live sport energy, broadcast warmth.</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#B45309"></div><div class="swatch-info"><div class="sw-name" style="color:var(--amber-deeper)">Sports Amber Dark</div><div class="sw-hex">HEX #B45309</div><div class="sw-rgb">RGB 180 / 83 / 9</div><div class="sw-role">Hover states for amber CTAs. Section hero backgrounds for PSN Sports. Deep and warm.</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#92400E"></div><div class="swatch-info"><div class="sw-name" style="color:var(--amber-light)">Sports Deeper</div><div class="sw-hex">HEX #92400E</div><div class="sw-rgb">RGB 146 / 64 / 14</div><div class="sw-role">Richest amber for text headings in Sports contexts. High contrast on light backgrounds. Not to be confused with PSN Gold.</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#FCD34D"></div><div class="swatch-info"><div class="sw-name" style="color:var(--amber-deeper)">Sports Light</div><div class="sw-hex">HEX #FCD34D</div><div class="sw-rgb">RGB 252 / 211 / 77</div><div class="sw-role">Text and taglines on amber dark/deeper backgrounds. Logo division sub-line on PSN Sports hero sections.</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#FEF3C7"></div><div class="swatch-info"><div class="sw-name" style="color:var(--amber-deeper)">Sports Tint</div><div class="sw-hex">HEX #FEF3C7</div><div class="sw-rgb">RGB 254 / 243 / 199</div><div class="sw-role">Card fills within Sports section. Warm background that reinforces the sport/broadcast energy.</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#FFFBEB"></div><div class="swatch-info"><div class="sw-name" style="color:var(--amber-deeper)">Sports Pale</div><div class="sw-hex">HEX #FFFBEB</div><div class="sw-rgb">RGB 255 / 251 / 235</div><div class="sw-role">Lightest amber context. Section background for overview pages, very subtle Sports identity signal.</div></div></div>
+  </div>
+
+  <table class="col-table" style="margin-top:32px">
+    <thead><tr><th>Context</th><th>Color</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Website nav &amp; master covers</strong></td><td><span class="cdot" style="background:#1033B8"></span>PSN Blue</td><td>Blue nav bar always. Blue or navy for master hero sections. Gold for key emphasis words on blue.</td></tr>
+      <tr><td><strong>Dark backgrounds (replacing black)</strong></td><td><span class="cdot" style="background:#0A1F6B"></span>PSN Navy</td><td>Use navy wherever a dark background is needed. Never use pure black (#000 or near-black) anywhere in PSN materials.</td></tr>
+      <tr><td><strong>Bridge section hero</strong></td><td><span class="cdot" style="background:#1E3A8A"></span>Bridge Deeper + <span class="cdot" style="background:#2563EB"></span>Cobalt</td><td>Deep cobalt background with cobalt accent. White headline text, cobalt-light division label. CTA button: #2563EB.</td></tr>
+      <tr><td><strong>Sports section hero</strong></td><td><span class="cdot" style="background:#B45309"></span>Amber Dark + <span class="cdot" style="background:#E8900A"></span>Amber</td><td>Amber dark background with amber accent. White text, amber-light division label. CTA button: #E8900A.</td></tr>
+      <tr><td><strong>Primary CTA buttons</strong></td><td>Context-specific</td><td>Master sections: PSN Blue (#1033B8). Bridge section: Cobalt (#2563EB). Sports section: Amber (#E8900A). Hover: one shade darker.</td></tr>
+      <tr><td><strong>Body text</strong></td><td><span class="cdot" style="background:#2C2C34"></span>Gray-800</td><td>On white or off-white backgrounds only. Never gray text on blue, cobalt, or amber backgrounds.</td></tr>
+      <tr><td><strong>PSN Gold accent</strong></td><td><span class="cdot" style="background:#F0A500"></span>PSN Gold</td><td>Sparingly on blue or navy surfaces only &mdash; tagline emphasis, data highlights, award callouts. Maximum 10% of any layout.</td></tr>
+      <tr><td><strong>Section alternation</strong></td><td><span class="cdot" style="background:#F8F9FF"></span>Off-white / <span class="cdot" style="background:#E8EFFE"></span>Blue Tint</td><td>Alternate white and off-white sections for master content. Division sections use their own pale backgrounds.</td></tr>
+      <tr><td><strong>Forbidden</strong></td><td>Black &middot; Green &middot; Red &middot; Pink</td><td>None of these colors appear anywhere in PSN materials. Navy replaces black. Division accents are blue-family and amber only.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ════ 05 TYPOGRAPHY ════ -->
+<section class="sec" id="type">
+  <div class="sec-ey ey-blue">05 &mdash; Typography</div>
+  <h2 class="sec-h">Broadcast bold.<br>Business clear.</h2>
+  <p class="sec-intro">Three typefaces, each with a precise role. Barlow Condensed for the bold broadcast authority of headlines. Barlow for readable, professional body copy. DM Mono for data, specs, and technical precision. All available free on Google Fonts.</p>
+
+  <div class="type-card">
+    <div class="tc-head tch-blue"><span class="tc-name">Barlow Condensed &mdash; Display &amp; headlines</span><span class="tc-role">ALL CAPS always &middot; Weights 700, 800, 900 &middot; Google Fonts (free)</span></div>
+    <div class="tc-body">
+      <div style="font-family:var(--fd);font-size:56px;font-weight:900;text-transform:uppercase;line-height:.88;margin-bottom:10px">Sports<br>Business</div>
+      <div style="font-family:var(--fd);font-size:26px;font-weight:700;text-transform:uppercase;color:var(--blue);margin-bottom:8px">&ldquo;The sports business network.&rdquo;</div>
+      <div style="font-family:var(--fm);font-size:11px;color:var(--gray-400)">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 !@#$&amp;</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="type-card" style="margin-bottom:0">
+      <div class="tc-head tch-navy"><span class="tc-name">Barlow &mdash; Body &amp; UI</span><span class="tc-role">Sentence case &middot; Weights 300, 400, 500, 600</span></div>
+      <div class="tc-body">
+        <div style="font-size:17px;font-weight:300;line-height:1.7;margin-bottom:8px">We open doors in India and the Middle East that take companies years to find alone.</div>
+        <div style="font-size:13px;font-weight:400;color:var(--gray-600);line-height:1.6">One brief reaches cricket fans in Mumbai and football fans in Riyadh, simultaneously, across six platforms.</div>
+      </div>
+    </div>
+    <div class="type-card" style="margin-bottom:0">
+      <div class="tc-head tch-navy"><span class="tc-name">DM Mono &mdash; Data &amp; specs</span><span class="tc-role">Technical labels, HEX codes, metrics &middot; Google Fonts (free)</span></div>
+      <div class="tc-body">
+        <div style="font-family:var(--fm);font-size:15px;color:var(--blue);margin-bottom:6px">#1033B8 &middot; #2563EB &middot; #E8900A</div>
+        <div style="font-family:var(--fm);font-size:13px;color:var(--gray-600);margin-bottom:4px">CPM $14.50 &middot; 2.4M reach &middot; India + MENA</div>
+        <div style="font-family:var(--fm);font-size:11px;color:var(--gray-400)">DOC-PSN-BG-003 &middot; v3.0 &middot; 2025</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="sub-lbl sl-blue">Type scale &mdash; digital (px reference at 1&times;)</div>
+  <div class="type-scale">
+    <div class="ts-row"><span class="ts-lbl">Display XL</span><span class="ts-spec" style="color:var(--blue)">Barlow Cond 900 &middot; 96&ndash;120px &middot; UC</span><span style="font-family:var(--fd);font-size:40px;font-weight:900;text-transform:uppercase">PSN</span></div>
+    <div class="ts-row"><span class="ts-lbl">Display L</span><span class="ts-spec" style="color:var(--blue)">Barlow Cond 900 &middot; 64&ndash;80px &middot; UC</span><span style="font-family:var(--fd);font-size:28px;font-weight:900;text-transform:uppercase">Sports Business</span></div>
+    <div class="ts-row"><span class="ts-lbl">H1</span><span class="ts-spec" style="color:var(--blue)">Barlow Cond 800 &middot; 44&ndash;56px &middot; UC</span><span style="font-family:var(--fd);font-size:22px;font-weight:800;text-transform:uppercase">The Sports Business Network.</span></div>
+    <div class="ts-row"><span class="ts-lbl">H2</span><span class="ts-spec" style="color:var(--blue)">Barlow Cond 700 &middot; 32&ndash;40px &middot; UC</span><span style="font-family:var(--fd);font-size:17px;font-weight:700;text-transform:uppercase">Where Sports Tech Meets Its Market.</span></div>
+    <div class="ts-row"><span class="ts-lbl">H3</span><span class="ts-spec" style="color:var(--blue)">Barlow Cond 700 &middot; 22&ndash;28px &middot; UC</span><span style="font-family:var(--fd);font-size:14px;font-weight:700;text-transform:uppercase">India + Middle East + APAC</span></div>
+    <div class="ts-row"><span class="ts-lbl">Body L</span><span class="ts-spec" style="color:var(--blue)">Barlow 300 &middot; 18px &middot; lh 1.7</span><span style="font-size:14px;font-weight:300">We connect sports tech founders with the markets ready for them.</span></div>
+    <div class="ts-row"><span class="ts-lbl">Body</span><span class="ts-spec" style="color:var(--blue)">Barlow 400 &middot; 15&ndash;16px &middot; lh 1.6</span><span style="font-size:12px">One brief reaches cricket fans in Mumbai and football fans in Riyadh.</span></div>
+    <div class="ts-row"><span class="ts-lbl">Caption</span><span class="ts-spec" style="color:var(--blue)">Barlow 500 &middot; 12px &middot; lh 1.5</span><span style="font-size:11px;font-weight:500;color:var(--gray-600)">India &middot; MENA &middot; APAC &middot; Sports Marketing &middot; 2025</span></div>
+    <div class="ts-row"><span class="ts-lbl">CTA labels</span><span class="ts-spec" style="color:var(--blue)">Barlow Cond 700 &middot; 13px &middot; UC &middot; ls 0.08em</span><span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span style="font-family:var(--fd);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:var(--bridge);color:var(--white);padding:4px 12px;border-radius:2px">Pressplay Bridge &#x2197;</span><span style="font-family:var(--fd);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:var(--amber);color:var(--white);padding:4px 12px;border-radius:2px">PSN Sports &#x2197;</span></span></div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="two-col">
+    <div class="info-block ib-blue"><div class="ib-title ibt-blue">Headlines: always uppercase, always Barlow Condensed</div><div class="ib-body">Every display and H1&ndash;H3 use must be ALL CAPS. No exceptions. This creates the bold, broadcast-quality authority that defines PSN. Mixed-case or title case for headlines is never permitted.</div></div>
+    <div class="info-block ib-gold"><div class="ib-title ibt-gold">Font fallbacks for environments without Google Fonts</div><div class="ib-body">Barlow Condensed &rarr; Impact, Arial Narrow Bold. Barlow &rarr; Helvetica Neue, Arial. DM Mono &rarr; Courier New, monospace. Always specify in design briefs that Google Fonts is the primary source.</div></div>
+  </div>
+</section>
+
+<!-- ════ 06 VOICE & TONE ════ -->
+<section class="sec sec-alt" id="voice">
+  <div class="sec-ey ey-blue">06 &mdash; Voice &amp; Tone</div>
+  <h2 class="sec-h">How PSN<br>speaks.</h2>
+  <p class="sec-intro">The master PSN voice is direct, expert, and ambitious. Pressplay Bridge calibrates this for startup founders who need speed and certainty. PSN Sports calibrates it for brand CMOs who need simplicity and scale. Both are honest, never over-promising.</p>
+
+  <div class="sub-lbl sl-blue" style="margin-bottom:12px">Master voice &mdash; four pillars (apply to all PSN communications)</div>
+  <div class="four-col" style="margin-bottom:32px">
+    <div class="info-block ib-blue"><div class="ib-title ibt-blue">Direct</div><div class="ib-body">No hedging. No vague promises. We say what we will deliver, in plain language. Short sentences. Strong verbs. Zero fluff.</div></div>
+    <div class="info-block ib-blue"><div class="ib-title ibt-blue">Expert</div><div class="ib-body">We reference real platforms, real markets, real deals. 20+ years of operating inside these markets. We demonstrate knowledge without needing to explain credentials.</div></div>
+    <div class="info-block ib-blue"><div class="ib-title ibt-blue">Connected</div><div class="ib-body">We know people on both sides of every deal. Warm and relationship-conscious. Every deal has a human on the other side and we write like we know that.</div></div>
+    <div class="info-block ib-gold"><div class="ib-title ibt-gold">Ambitious</div><div class="ib-body">India and the Middle East are two of the world&rsquo;s most exciting sports markets. We own that energy. Forward-looking, bold about claims we can back up.</div></div>
+  </div>
+
+  <div class="sub-lbl sl-bridge">Division voice &mdash; Pressplay Bridge vs PSN Sports</div>
+  <div class="voice-pair">
+    <div class="vc-bridge">
+      <div class="vc-lbl vcl-bridge">Pressplay Bridge voice</div>
+      <div class="v-trait"><div class="vt-name vtn-bridge">Operator-credible</div><div class="vt-body">We&rsquo;ve sat in JioHotstar&rsquo;s commercial office. We&rsquo;ve run the sales process for Brightcove India. We speak from inside the market &mdash; not from a consultant&rsquo;s playbook. Name the specifics.</div></div>
+      <div class="v-trait"><div class="vt-name vtn-bridge">Speed-obsessed</div><div class="vt-body">Founders are time-poor. &ldquo;We get you to revenue in 90 days&rdquo; beats three paragraphs about market opportunity. Always anchor on timeframes and tangible outputs.</div></div>
+      <div class="v-trait"><div class="vt-name vtn-bridge">Risk-dismantling</div><div class="vt-body">Entering India or MENA is daunting. PSN names that fear and then defeats it &mdash; regulatory navigation, first-hire avoidance, pre-built publisher relationships.</div></div>
+      <div class="v-trait"><div class="vt-name vtn-bridge">Deal-specific</div><div class="vt-body">Never &ldquo;explore partnerships.&rdquo; Always &ldquo;three qualified publisher meetings in the first 30 days.&rdquo; Name deliverables. Specificity builds trust faster than any credential.</div></div>
+    </div>
+    <div class="vc-sports">
+      <div class="vc-lbl vcl-sports">PSN Sports voice</div>
+      <div class="v-trait"><div class="vt-name vtn-sports">Decisive</div><div class="vt-body">Brands want to be told what to do. &ldquo;Here&rsquo;s what a $150k India + MENA package looks like&rdquo; lands better than &ldquo;what are your objectives?&rdquo; Lead with the recommendation.</div></div>
+      <div class="v-trait"><div class="vt-name vtn-sports">Insider-access</div><div class="vt-body">Name the platforms. Reference specific inventory. The audience should feel they&rsquo;re getting access to something exclusive &mdash; not a media agency deck they could get anywhere.</div></div>
+      <div class="v-trait"><div class="vt-name vtn-sports">Simplicity-obsessed</div><div class="vt-body">The entire PSN Sports value prop is about collapsing complexity. Language must mirror that &mdash; short sentences, no jargon, no ad-tech acronyms. If it needs explaining, rewrite it.</div></div>
+      <div class="v-trait"><div class="vt-name vtn-sports">Scale-aware</div><div class="vt-body">Two billion sports fans. Six platforms. Two markets. We don&rsquo;t shrink from the scale. &ldquo;Your brand, live, in front of the most passionate sports fans on the planet.&rdquo;</div></div>
+    </div>
+  </div>
+
+  <div class="sub-lbl sl-bridge" style="margin-top:8px">Copy in action &mdash; Pressplay Bridge</div>
+  <div class="copy-ex">
+    <div class="cex-head ceh-bridge">Pressplay Bridge &mdash; outreach to a US sports tech founder</div>
+    <div class="cex-body">
+      <div class="cx-bad"><div class="cx-tag cxt-bad">&#x2715; Never</div><div class="cx-text">&ldquo;Pressplay Bridge offers comprehensive market entry advisory services to help sports technology companies navigate the complex regulatory and commercial landscape of the India and Middle East region, leveraging our extensive network of industry contacts.&rdquo;</div></div>
+      <div class="cx-good"><div class="cx-tag cxt-good">&#x2713; PSN Voice</div><div class="cx-text">&ldquo;You&rsquo;ve built something great. Now you need India and the Middle East. We&rsquo;ve been operating in those rooms for 20 years. Let us get you there in 90 days.&rdquo;</div></div>
+    </div>
+  </div>
+  <div class="copy-ex">
+    <div class="cex-head ceh-bridge">Pressplay Bridge &mdash; proposal opening line</div>
+    <div class="cex-body">
+      <div class="cx-bad"><div class="cx-tag cxt-bad">&#x2715; Never</div><div class="cx-text">&ldquo;We would potentially be interested in exploring whether there might be an opportunity to facilitate introductions to certain market participants in the region on a mutually beneficial basis.&rdquo;</div></div>
+      <div class="cx-good"><div class="cx-tag cxt-good">&#x2713; PSN Voice</div><div class="cx-text">&ldquo;We work with JioHotstar, FanCode, and Dream11. We think your product solves a real problem for them. Three meetings in 30 days &mdash; want us to make the introductions?&rdquo;</div></div>
+    </div>
+  </div>
+
+  <div class="sub-lbl sl-amber" style="margin-top:20px">Copy in action &mdash; PSN Sports</div>
+  <div class="copy-ex">
+    <div class="cex-head ceh-sports">PSN Sports &mdash; brand proposal opening</div>
+    <div class="cex-body">
+      <div class="cx-bad"><div class="cx-tag cxt-bad">&#x2715; Never</div><div class="cx-text">&ldquo;PSN Sports is able to potentially facilitate the exploration of partnership opportunities across a range of sports streaming platforms, depending on your marketing objectives and available budget.&rdquo;</div></div>
+      <div class="cx-good"><div class="cx-tag cxt-good">&#x2713; PSN Voice</div><div class="cx-text">&ldquo;JioHotstar. FanCode. Shahid. DAZN. Dream11. StarzPlay. Tell us your market, your sport, and your budget. We&rsquo;ll come back with a package in 48 hours.&rdquo;</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ 07 WEBSITE ARCHITECTURE ════ -->
+<section class="sec" id="website">
+  <div class="sec-ey ey-blue">07 &mdash; Website Architecture</div>
+  <h2 class="sec-h">One URL.<br>Two clear paths.</h2>
+  <p class="sec-intro">The PSN website is a single URL serving both divisions through a structured vertical scroll. The parent brand hero introduces PSN, then visitors self-select into Pressplay Bridge or PSN Sports. All backgrounds are blue-family or white &mdash; no black anywhere. Navigation bar: PSN Blue with gold bottom border.</p>
+
+  <div class="sub-lbl sl-blue">Navigation structure</div>
+  <div style="border:1px solid var(--gray-200);border-radius:10px;overflow:hidden;margin-bottom:24px">
+    <div style="background:var(--navy);padding:12px 20px"><div style="font-family:var(--fd);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--white)">Primary navigation &mdash; desktop</div></div>
+    <div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 20px;border-bottom:.5px solid var(--gray-200)"><span style="font-size:13px;font-weight:500">Logo / Home</span><span style="font-family:var(--fm);font-size:10px;color:var(--gray-400)">#hero</span><span style="font-size:11px;color:var(--gray-600);font-style:italic">Always links to top of homepage. PSN primary logo reversed on blue.</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 20px;border-bottom:.5px solid var(--gray-200)"><span style="font-size:13px;font-weight:500">Pressplay Bridge</span><span style="font-family:var(--fm);font-size:10px;color:var(--bridge)">#bridge</span><span style="font-size:11px;color:var(--gray-600);font-style:italic">Scrolls to Bridge section. Cobalt pill indicator in nav.</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 20px;border-bottom:.5px solid var(--gray-200)"><span style="font-size:13px;font-weight:500">PSN Sports</span><span style="font-family:var(--fm);font-size:10px;color:var(--amber)">#psn-sports</span><span style="font-size:11px;color:var(--gray-600);font-style:italic">Scrolls to PSN Sports section. Amber pill indicator in nav.</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 20px;border-bottom:.5px solid var(--gray-200)"><span style="font-size:13px;font-weight:500">About</span><span style="font-family:var(--fm);font-size:10px;color:var(--gray-400)">#about</span><span style="font-size:11px;color:var(--gray-600);font-style:italic">Vinit&rsquo;s background, Pressplay Capital, AthleteAgent connection.</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 20px;border-bottom:.5px solid var(--gray-200)"><span style="font-size:13px;font-weight:500">Publishers</span><span style="font-family:var(--fm);font-size:10px;color:var(--gray-400)">#publishers</span><span style="font-size:11px;color:var(--gray-600);font-style:italic">Publisher network logos and relationship overview.</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 20px"><span style="font-size:13px;font-weight:500;color:var(--blue)">Get Started &rarr;</span><span style="font-family:var(--fm);font-size:10px;color:var(--gray-400)">Primary CTA</span><span style="font-size:11px;color:var(--gray-600);font-style:italic">PSN Blue button with gold hover. Two-path contact form (Bridge / Sports).</span></div>
+    </div>
+  </div>
+
+  <div class="sub-lbl sl-blue">Full page structure &mdash; section by section</div>
+  <div class="site-map">
+    <div class="sm-head"><span class="sm-title">pressplaysportsnetwork.com &mdash; full page structure</span><span class="sm-note">Single scroll &middot; One URL &middot; No black backgrounds</span></div>
+    <div class="site-sec">
+      <div class="ss-head ssh-blue"><div><div class="ss-title sst-white">Hero &mdash; Parent brand (full viewport)</div></div><span class="ss-anch">#hero</span></div>
+      <div class="ss-modules">
+        <div class="ss-mod"><div class="ss-mod-name">Nav bar</div><div class="ss-mod-spec">PSN Blue bg (#1033B8) &middot; 56px height &middot; 3px gold bottom border &middot; White logo left &middot; Division pills (cobalt + amber) &middot; Gold &ldquo;Get Started&rdquo; CTA button</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Headline block</div><div class="ss-mod-spec">Blue bg with grid texture overlay &middot; H1: &ldquo;Pressplay Sports Network&rdquo; in Barlow Cond 900 &middot; Tagline: &ldquo;The sports business network.&rdquo; &middot; White text, gold accent word</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Division split</div><div class="ss-mod-spec">Two equal panels below headline &middot; Left: Bridge cobalt deeper bg &middot; Right: Sports amber dark bg &middot; Each shows division name, tagline, and CTA</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Publisher bar</div><div class="ss-mod-spec">6 publisher logo pills on blue bg &middot; White/semi-transparent &middot; &ldquo;Premium publisher network&rdquo; label &middot; JioHotstar, FanCode, Dream11, Shahid, StarzPlay, DAZN</div></div>
+      </div>
+    </div>
+    <div class="site-sec">
+      <div class="ss-head ssh-bridge"><div><div class="ss-title sst-white">Pressplay Bridge section</div></div><span class="ss-anch">#bridge</span></div>
+      <div class="ss-modules">
+        <div class="ss-mod"><div class="ss-mod-name">Section hero</div><div class="ss-mod-spec">Bridge deeper bg (#1E3A8A) &middot; H2: &ldquo;Pressplay Bridge&rdquo; in white &middot; Tagline in cobalt-light &middot; Market badges: India, MENA, APAC &middot; Subtle grid overlay</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Value proposition</div><div class="ss-mod-spec">Off-white or bridge-pale bg &middot; 3-card grid: What we do / Who we serve / Why Bridge &middot; Cobalt accent bars &middot; Barlow Cond H3 card titles</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Service tiers</div><div class="ss-mod-spec">Scout / Launch / Embed (3 cards) &middot; Cobalt CTA on each &middot; Monthly retainer + success fee detail &middot; Bridge tint card backgrounds</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">CTA</div><div class="ss-mod-spec">Cobalt button (#2563EB) &middot; &ldquo;Tell us about your startup &rarr;&rdquo; &middot; Contact form pre-tagged for Bridge &middot; Brief social proof stat (e.g. 90 days to market)</div></div>
+      </div>
+    </div>
+    <div class="site-sec">
+      <div class="ss-head ssh-sports"><div><div class="ss-title sst-white">PSN Sports section</div></div><span class="ss-anch">#psn-sports</span></div>
+      <div class="ss-modules">
+        <div class="ss-mod"><div class="ss-mod-name">Section hero</div><div class="ss-mod-spec">Amber dark bg (#B45309) &middot; H2: &ldquo;PSN Sports&rdquo; in white &middot; Tagline in amber-light &middot; Publisher logos in white pills &middot; Budget range callout: $50k&ndash;$500k+</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Services</div><div class="ss-mod-spec">Off-white or sports-pale bg &middot; 4-card grid: Bundled packages / Sponsorship brokerage / Athlete matching / Campaign reporting &middot; Amber accents throughout</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Publisher network</div><div class="ss-mod-spec">Publisher logo showcase &middot; White cards on off-white bg &middot; Platform name + audience size + geography descriptor &middot; &ldquo;6 platforms. One conversation.&rdquo; headline</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">CTA</div><div class="ss-mod-spec">Amber button (#E8900A) &middot; &ldquo;Get a media package &rarr;&rdquo; &middot; Contact form pre-tagged for Sports &middot; 48-hour turnaround promise visible</div></div>
+      </div>
+    </div>
+    <div class="site-sec">
+      <div class="ss-head ssh-gray"><div><div class="ss-title sst-dark">About &amp; contact</div></div><span class="ss-anch-dark">#about &middot; #contact</span></div>
+      <div class="ss-modules">
+        <div class="ss-mod"><div class="ss-mod-name">Founder block</div><div class="ss-mod-spec">White bg &middot; Vinit Mehta bio &middot; Brightcove, Endeavor Streaming, Adsolut Media credentials &middot; LinkedIn link &middot; &ldquo;Operator-built&rdquo; narrative</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Publisher showcase</div><div class="ss-mod-spec">Blue-pale bg &middot; 6 publishers with market + audience data &middot; Blue-tint cards &middot; Brief one-line descriptor per platform</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Capital &amp; investments</div><div class="ss-mod-spec">Pressplay Capital brief mention &middot; AthleteAgent.com investment callout &middot; &ldquo;Backed by operators&rdquo; framing</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Contact form</div><div class="ss-mod-spec">Two-path: &ldquo;I&rsquo;m a startup&rdquo; (cobalt) / &ldquo;I&rsquo;m a brand&rdquo; (amber) &middot; Routes to respective division inboxes &middot; vinitm@gmail.com fallback</div></div>
+      </div>
+    </div>
+    <div class="site-sec">
+      <div class="ss-head" style="background:var(--navy);"><div><div class="ss-title sst-white">Footer</div></div><span class="ss-anch">&mdash;</span></div>
+      <div class="ss-modules">
+        <div class="ss-mod"><div class="ss-mod-name">Brand block</div><div class="ss-mod-spec">Navy bg &middot; PSN logo reversed (white) &middot; Parent tagline &middot; Division name + tagline chips in cobalt and amber tints</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Quick links</div><div class="ss-mod-spec">Bridge section links / Sports section links / About / Publishers &middot; White 45% opacity text &middot; Gold hover</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Contact</div><div class="ss-mod-spec">Vinit Mehta &middot; vinitm@gmail.com &middot; Dubai, UAE &middot; pressplaysportsnetwork.com</div></div>
+        <div class="ss-mod"><div class="ss-mod-name">Legal</div><div class="ss-mod-spec">&copy; 2025 Pressplay Sports Network &middot; DOC reference &middot; Gold line top border of footer section for visual anchor</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-lbl sl-blue">Developer component specifications</div>
+  <div class="comp-grid">
+    <div class="comp-card">
+      <div class="comp-head ch-blue">Navigation bar</div>
+      <div class="comp-body"><div class="comp-spec">Background: <code>#1033B8</code> &middot; Height: <code>56px</code> &middot; Bottom border: <code>3px solid #F0A500</code><br>Logo: PSN primary reversed (white), left-aligned<br>Links: Barlow 500, 11px, uppercase, <code>rgba(255,255,255,.6)</code>, hover: white<br>Division pills: cobalt <code>rgba(37,99,235,.25)</code> bg + Bridge Light text; amber <code>rgba(232,144,10,.25)</code> bg + Amber Light text<br>CTA: <code>background:#F0A500</code>, navy text, Barlow Cond 700, 12px, uppercase, 8px 20px padding, border-radius: 3px<br><code>position:sticky;top:0;z-index:200</code></div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-head ch-blue">Parent hero section</div>
+      <div class="comp-body"><div class="comp-spec">Background: <code>#1033B8</code> &middot; Min-height: <code>100vh</code><br>Grid overlay: <code>rgba(255,255,255,.04)</code>, 1px lines, <code>60px</code> spacing<br>H1: Barlow Cond 900, <code>clamp(62px,8.5vw,104px)</code>, white, uppercase<br>Accent word: <code>#F0A500</code> (gold)<br>Sub: Barlow 300, 17px, <code>rgba(255,255,255,.6)</code><br>Division split: 2-col grid below hero text &middot; Left: <code>#1E3A8A</code> (Bridge deeper) &middot; Right: <code>#B45309</code> (Amber dark)<br>Publisher bar: <code>rgba(255,255,255,.1)</code> pill bg, white text, <code>rgba(255,255,255,.35)</code> label</div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-head ch-bridge">Pressplay Bridge section</div>
+      <div class="comp-body"><div class="comp-spec">Hero bg: <code>#1E3A8A</code> (Bridge Deeper) &middot; Grid overlay same as parent<br>Section eyebrow: <code>#93C5FD</code>, 10px, uppercase, letter-spacing 0.2em<br>H2: Barlow Cond 900, white, uppercase<br>Tagline: <code>#93C5FD</code>, Barlow Cond 700<br>Content bg: <code>#EFF6FF</code> (Bridge Pale) alternating with white<br>Cards: <code>background:#DBEAFE</code> &middot; border: <code>1px solid rgba(37,99,235,.2)</code><br>CTA button: <code>background:#2563EB</code> &middot; hover: <code>#1D4ED8</code> &middot; Barlow Cond 700<br>Padding: <code>88px 80px</code> desktop &middot; <code>64px 40px</code> tablet &middot; <code>48px 20px</code> mobile</div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-head ch-sports">PSN Sports section</div>
+      <div class="comp-body"><div class="comp-spec">Hero bg: <code>#B45309</code> (Amber Dark) &middot; Grid overlay same as parent<br>Section eyebrow: <code>#FCD34D</code>, 10px, uppercase, letter-spacing 0.2em<br>H2: Barlow Cond 900, white, uppercase<br>Tagline: <code>#FCD34D</code>, Barlow Cond 700<br>Content bg: <code>#FFFBEB</code> (Sports Pale) alternating with white<br>Cards: <code>background:#FEF3C7</code> &middot; border: <code>1px solid rgba(232,144,10,.2)</code><br>CTA button: <code>background:#E8900A</code> &middot; hover: <code>#B45309</code> &middot; Barlow Cond 700<br>Publisher card: white bg &middot; <code>border:1px solid var(--gray-200)</code> &middot; border-radius: 10px</div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-head ch-navy">Footer</div>
+      <div class="comp-body"><div class="comp-spec">Background: <code>#0A1F6B</code> (Navy) &middot; Never black<br>Top border: <code>3px solid #F0A500</code> (gold) for visual anchor<br>Brand name: Barlow Cond 900, 20px, white, uppercase<br>Division chips: Cobalt tint bg + Bridge light text; Amber tint bg + Amber light text<br>Column titles: <code>#F0A500</code> (gold), 9px, uppercase, letter-spacing 0.16em<br>Body text: <code>rgba(255,255,255,.45)</code> &middot; Link hover: <code>rgba(255,255,255,.8)</code><br>Legal: <code>rgba(255,255,255,.2)</code>, 10px<br>Padding: <code>56px 80px</code></div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-head ch-navy">Typography CSS</div>
+      <div class="comp-body"><div class="comp-spec">Google Fonts import (paste into &lt;head&gt;):<br><code>Barlow+Condensed:wght@700;800;900</code><br><code>Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400</code><br><code>DM+Mono:wght@400;500</code><br><br><code>--font-display: "Barlow Condensed", sans-serif</code><br><code>--font-body: "Barlow", sans-serif</code><br><code>--font-mono: "DM Mono", monospace</code><br><br>Base: <code>font-size:16px</code> &middot; All font sizes use <code>clamp()</code> for responsive scaling</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ 08 DIGITAL APPLICATIONS ════ -->
+<section class="sec sec-alt" id="applications">
+  <div class="sec-ey ey-blue">08 &mdash; Digital Applications</div>
+  <h2 class="sec-h">Across every<br>touchpoint.</h2>
+  <p class="sec-intro">How PSN, Pressplay Bridge, and PSN Sports show up across email, social media, presentations, and business materials. Every application has defined specifications to ensure consistency without requiring creative decisions every time.</p>
+
+  <div class="sub-lbl sl-blue">Social media size specifications</div>
+  <table class="spec-table">
+    <thead><tr><th>Platform</th><th>Format</th><th>Size</th><th>Logo variant</th><th>Division</th><th>Background</th></tr></thead>
+    <tbody>
+      <tr><td><strong>LinkedIn</strong></td><td>Company banner</td><td><span class="chip">1584&times;396px</span></td><td>Primary reversed (white on blue)</td><td><span class="chip chip-blue">Parent</span></td><td>PSN Blue #1033B8</td></tr>
+      <tr><td><strong>LinkedIn</strong></td><td>Post image</td><td><span class="chip">1200&times;628px</span></td><td>PSN abbreviated + division label</td><td>Division-specific bg</td><td>Bridge Deeper / Amber Dark</td></tr>
+      <tr><td><strong>LinkedIn</strong></td><td>Square post</td><td><span class="chip">1080&times;1080px</span></td><td>PSN abbreviated top-left</td><td><span class="chip chip-bridge">Bridge</span> <span class="chip chip-sports">Sports</span></td><td>Division or navy bg</td></tr>
+      <tr><td><strong>WhatsApp</strong></td><td>Group / profile icon</td><td><span class="chip">640&times;640px</span></td><td>PSN mark (circle, white bg)</td><td><span class="chip chip-blue">Parent</span></td><td>White, blue border</td></tr>
+      <tr><td><strong>Instagram</strong></td><td>Square post</td><td><span class="chip">1080&times;1080px</span></td><td>PSN abbreviated top-left</td><td>Division-specific</td><td>Division-specific</td></tr>
+      <tr><td><strong>Instagram</strong></td><td>Stories</td><td><span class="chip">1080&times;1920px</span></td><td>PSN abbreviated top-left</td><td>Division-specific</td><td>Division hero color</td></tr>
+      <tr><td><strong>Twitter / X</strong></td><td>Profile image</td><td><span class="chip">400&times;400px</span></td><td>PSN mark (circle)</td><td><span class="chip chip-blue">Parent</span></td><td>PSN Blue</td></tr>
+      <tr><td><strong>Presentations</strong></td><td>Slide deck</td><td><span class="chip">1920&times;1080px</span></td><td>Reversed on cover</td><td>Division cover color</td><td>No black &mdash; use Navy</td></tr>
+    </tbody>
+  </table>
+
+  <div class="divider"></div>
+  <div class="sub-lbl sl-blue">Business materials specifications</div>
+  <table class="spec-table">
+    <thead><tr><th>Material</th><th>Size</th><th>Color treatment</th><th>Logo</th><th>Key specification</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Business card</strong></td><td>90&times;55mm</td><td>Front: PSN Blue bg, gold bottom accent stripe. Back: white, blue left border.</td><td>Primary reversed (front). Primary blue (back).</td><td>DM Mono for email/phone on back. Barlow Cond for name.</td></tr>
+      <tr><td><strong>Email signature</strong></td><td>HTML, max 600px</td><td>3px left border in division color (cobalt or amber) or PSN Blue</td><td>PSN abbreviated</td><td>Name: Barlow Cond 700. Role + division label. vinitm@gmail.com. No black borders.</td></tr>
+      <tr><td><strong>Bridge pitch deck</strong></td><td>1920&times;1080px</td><td>Cover: Bridge Deeper (#1E3A8A). Content slides: white + cobalt accents.</td><td>Reversed (cover). Primary (content).</td><td>Division tagline on cover. &ldquo;Pressplay Bridge&rdquo; sub-line on all slides.</td></tr>
+      <tr><td><strong>PSN Sports media kit</strong></td><td>A4 PDF / 16:9 PPT</td><td>Cover: Amber Dark (#B45309). Content: white + amber accents.</td><td>Reversed (cover). Primary (content).</td><td>Publisher logos on slide 2. Budget range prominent. Amber CTA bar at bottom of each slide.</td></div></tr>
+      <tr><td><strong>Campaign report</strong></td><td>A4 PDF</td><td>White bg, PSN Blue header band, amber data highlights</td><td>PSN abbreviated (header)</td><td>DM Mono for all metrics. PSN Blue for chart fills. Gold for record-breaking numbers.</td></tr>
+      <tr><td><strong>WhatsApp Inner Circle icon</strong></td><td>640&times;640px</td><td>White background</td><td>PSN mark (circle)</td><td>Clean only &mdash; no tagline, no division label. Just the mark on white with blue border.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="divider"></div>
+  <div class="sub-lbl sl-blue">Co-branding rules &mdash; publishers &amp; partners</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div style="border:1px solid var(--gray-200);border-radius:8px;overflow:hidden"><div style="background:var(--blue);padding:12px 16px;display:flex;align-items:center;gap:10px"><span style="font-family:var(--fd);font-size:16px;font-weight:900;color:var(--gold)">01</span><span style="font-family:var(--fd);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.06em">PSN is always primary</span></div><div style="padding:10px 16px;font-size:12px;color:var(--gray-600);line-height:1.6">In all PSN-produced materials, the PSN logo appears first &mdash; top-left or most prominent position &mdash; at equal or greater size than any partner or publisher logo.</div></div>
+    <div style="border:1px solid var(--gray-200);border-radius:8px;overflow:hidden"><div style="background:var(--blue);padding:12px 16px;display:flex;align-items:center;gap:10px"><span style="font-family:var(--fd);font-size:16px;font-weight:900;color:var(--gold)">02</span><span style="font-family:var(--fd);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.06em">Publisher logo row</span></div><div style="padding:10px 16px;font-size:12px;color:var(--gray-600);line-height:1.6">Publisher partners appear in a single equal-sized row, separated by 1px vertical rules in gray-200. Never intermix the PSN logo in the publisher row.</div></div>
+    <div style="border:1px solid var(--gray-200);border-radius:8px;overflow:hidden"><div style="background:var(--blue);padding:12px 16px;display:flex;align-items:center;gap:10px"><span style="font-family:var(--fd);font-size:16px;font-weight:900;color:var(--gold)">03</span><span style="font-family:var(--fd);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.06em">Minimum separation</span></div><div style="padding:10px 16px;font-size:12px;color:var(--gray-600);line-height:1.6">Maintain at least 40px (digital) or 12mm (print) clear space between the PSN logo and any third-party logo. Never adjacent without this buffer.</div></div>
+    <div style="border:1px solid var(--gray-200);border-radius:8px;overflow:hidden"><div style="background:var(--blue);padding:12px 16px;display:flex;align-items:center;gap:10px"><span style="font-family:var(--fd);font-size:16px;font-weight:900;color:var(--gold)">04</span><span style="font-family:var(--fd);font-size:13px;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.06em">Division color rule</span></div><div style="padding:10px 16px;font-size:12px;color:var(--gray-600);line-height:1.6">Never use Cobalt in PSN Sports materials or Amber in Pressplay Bridge materials. The division accent colors are exclusive identifiers. The master PSN Blue bridges both divisions.</div></div>
+  </div>
+</section>
+
+<!-- ════ 09 ASSET CHECKLIST & CSS TOKENS ════ -->
+<section class="sec sec-blue" id="assets">
+  <div class="sec-ey ey-blue">09 &mdash; Asset Checklist &amp; Developer Tokens</div>
+  <h2 class="sec-h">Everything<br>a developer needs.</h2>
+  <p class="sec-intro">The complete list of assets to create before any developer begins, plus all CSS custom properties ready to paste directly into the codebase. Share this document with Claude Code or any developer to begin building immediately.</p>
+
+  <div class="sub-lbl sl-blue">Required asset list &mdash; use as handoff checklist</div>
+  <div class="checklist">
+    <div class="cl-col">
+      <div class="cl-head clh-blue"><div class="cl-head-title">Master brand logo files</div></div>
+      <div class="cl-items">
+        <div class="cl-item">Primary logo horizontal &mdash; SVG (vector), PNG transparent 2&times; 3&times;</div>
+        <div class="cl-item">Reversed white on blue &mdash; SVG, PNG transparent</div>
+        <div class="cl-item">Reversed white on navy &mdash; SVG, PNG transparent</div>
+        <div class="cl-item">PSN abbreviated mark &mdash; SVG, PNG transparent</div>
+        <div class="cl-item">Favicon &mdash; ICO, PNG 16px, 32px, 64px, 192px, 512px</div>
+        <div class="cl-item">Apple touch icon &mdash; PNG 180&times;180px</div>
+        <div class="cl-item">Social avatar (circle) &mdash; PNG 1000&times;1000px and 400&times;400px</div>
+        <div class="cl-item">Wordmark only (no icon) &mdash; SVG, PNG</div>
+      </div>
+    </div>
+    <div class="cl-col">
+      <div class="cl-head clh-bridge"><div class="cl-head-title">Pressplay Bridge logo files</div></div>
+      <div class="cl-items">
+        <div class="cl-item">Bridge variant with &ldquo;Pressplay Bridge&rdquo; sub-line on cobalt bg &mdash; SVG, PNG</div>
+        <div class="cl-item">Bridge variant on white (blue logo, cobalt sub-line) &mdash; SVG, PNG</div>
+        <div class="cl-item">Bridge abbreviated with sub-line &mdash; SVG, PNG</div>
+        <div class="cl-item">Bridge email header template &mdash; HTML file</div>
+        <div class="cl-item">Bridge pitch deck cover &mdash; PPTX / Google Slides</div>
+        <div class="cl-item">LinkedIn post template (Bridge) &mdash; 1080&times;1080 Figma/PSD</div>
+        <div class="cl-item">LinkedIn post template (Bridge) &mdash; 1200&times;628 Figma/PSD</div>
+      </div>
+    </div>
+    <div class="cl-col">
+      <div class="cl-head clh-sports"><div class="cl-head-title">PSN Sports logo files</div></div>
+      <div class="cl-items">
+        <div class="cl-item">Sports variant with &ldquo;PSN Sports&rdquo; sub-line on amber dark bg &mdash; SVG, PNG</div>
+        <div class="cl-item">Sports variant on white (blue logo, amber sub-line) &mdash; SVG, PNG</div>
+        <div class="cl-item">Sports abbreviated with sub-line &mdash; SVG, PNG</div>
+        <div class="cl-item">PSN Sports email header template &mdash; HTML file</div>
+        <div class="cl-item">Sports media kit / brand proposal cover &mdash; PPTX</div>
+        <div class="cl-item">LinkedIn post template (Sports) &mdash; 1080&times;1080 Figma/PSD</div>
+        <div class="cl-item">Publisher logo row &mdash; approved files from all 6 publishers</div>
+      </div>
+    </div>
+    <div class="cl-col">
+      <div class="cl-head clh-navy"><div class="cl-head-title">Fonts &amp; design system files</div></div>
+      <div class="cl-items">
+        <div class="cl-item">Google Fonts: Barlow Condensed (700, 800, 900) &mdash; link in &lt;head&gt;</div>
+        <div class="cl-item">Google Fonts: Barlow (300, 400, 500, 600, italic) &mdash; link in &lt;head&gt;</div>
+        <div class="cl-item">Google Fonts: DM Mono (400, 500) &mdash; link in &lt;head&gt;</div>
+        <div class="cl-item">CSS custom properties file (see below) &mdash; tokens.css</div>
+        <div class="cl-item">Design tokens (JSON) for Figma or Storybook integration</div>
+        <div class="cl-item">Component library: nav, hero, cards, buttons, section headers &mdash; Figma</div>
+        <div class="cl-item">Business card template &mdash; print-ready PDF or AI file</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="sub-lbl sl-blue">CSS custom properties &mdash; copy directly into codebase</div>
+  <div style="background:var(--navy);border-radius:10px;padding:28px 32px;font-family:var(--fm);font-size:12px;line-height:1.9;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.08)">
+    <div style="color:rgba(255,255,255,.3);margin-bottom:10px">/* ═══ Pressplay Sports Network &mdash; CSS Custom Properties v3.0 ═══ */</div>
+    <div style="color:rgba(255,255,255,.3)">/* pressplaysportsnetwork.com &middot; Dubai, UAE &middot; DOC-PSN-BG-003 */</div>
+    <div style="color:rgba(255,255,255,.3);margin-bottom:8px">/* No black. No green. No red. No pink. Navy replaces black throughout. */</div>
+    <div style="color:rgba(255,255,255,.3)">:root {</div>
+    <div style="margin-left:20px">
+      <div style="color:var(--bridge-light);margin:8px 0 4px 0">/* ─── Master Brand ─── */</div>
+      <div>--psn-blue: <span style="color:var(--gold)">#1033B8</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Primary brand. Logo, nav, CTAs */</span></div>
+      <div>--psn-navy: <span style="color:var(--gold)">#0A1F6B</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Replaces black. Footer, dark sections */</span></div>
+      <div>--psn-blue-mid: <span style="color:var(--gold)">#1A4AD4</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Hover on blue elements */</span></div>
+      <div>--psn-blue-light: <span style="color:var(--gold)">#4A72E8</span>;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Light blue emphasis */</span></div>
+      <div>--psn-blue-tint: <span style="color:var(--gold)">#E8EFFE</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Info panels, card fills */</span></div>
+      <div>--psn-blue-pale: <span style="color:var(--gold)">#F2F5FF</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Lightest blue bg */</span></div>
+      <div>--psn-gold: <span style="color:var(--gold)">#F0A500</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Master accent. Sparingly. Max 10% */</span></div>
+      <div>--psn-gold-dark: <span style="color:var(--gold)">#7A5200</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Text on gold backgrounds */</span></div>
+      <div>--psn-gold-light: <span style="color:var(--gold)">#FFF3D6</span>;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Gold tint backgrounds */</span></div>
+      <div>--psn-white: <span style="color:var(--gold)">#FFFFFF</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Primary background */</span></div>
+      <div>--psn-off-white: <span style="color:var(--gold)">#F8F9FF</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Alternating sections */</span></div>
+      <div>--psn-gray-100: <span style="color:var(--gold)">#F5F5F7</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Lightest neutral bg */</span></div>
+      <div>--psn-gray-200: <span style="color:var(--gold)">#E4E4EA</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Borders, dividers */</span></div>
+      <div>--psn-gray-400: <span style="color:var(--gold)">#AEAEB8</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Placeholder text, subtle labels */</span></div>
+      <div>--psn-gray-600: <span style="color:var(--gold)">#6E6E7A</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Body copy, secondary text */</span></div>
+      <div>--psn-gray-800: <span style="color:var(--gold)">#2C2C34</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Primary body text on light bg */</span></div>
+
+      <div style="color:var(--bridge-light);margin:12px 0 4px 0">/* ─── Pressplay Bridge (Cobalt Blue) ─── */</div>
+      <div>--bridge: <span style="color:var(--gold)">#2563EB</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Primary accent. CTAs, badges, accents */</span></div>
+      <div>--bridge-dark: <span style="color:var(--gold)">#1D4ED8</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Hover on cobalt CTAs */</span></div>
+      <div>--bridge-deeper: <span style="color:var(--gold)">#1E3A8A</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Hero backgrounds, text headings */</span></div>
+      <div>--bridge-light: <span style="color:var(--gold)">#93C5FD</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Text on deep cobalt surfaces */</span></div>
+      <div>--bridge-tint: <span style="color:var(--gold)">#DBEAFE</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Card backgrounds in Bridge section */</span></div>
+      <div>--bridge-pale: <span style="color:var(--gold)">#EFF6FF</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Section background, lightest Bridge */</span></div>
+
+      <div style="color:var(--amber-light);margin:12px 0 4px 0">/* ─── PSN Sports (Amber) ─── */</div>
+      <div>--amber: <span style="color:var(--gold)">#E8900A</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Primary accent. CTAs, badges, accents */</span></div>
+      <div>--amber-dark: <span style="color:var(--gold)">#B45309</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Hero backgrounds, hover states */</span></div>
+      <div>--amber-deeper: <span style="color:var(--gold)">#92400E</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Text headings in Sports contexts */</span></div>
+      <div>--amber-light: <span style="color:var(--gold)">#FCD34D</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Text on amber dark/deeper surfaces */</span></div>
+      <div>--amber-tint: <span style="color:var(--gold)">#FEF3C7</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Card backgrounds in Sports section */</span></div>
+      <div>--amber-pale: <span style="color:var(--gold)">#FFFBEB</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:rgba(255,255,255,.3)">/* Section background, lightest Sports */</span></div>
+
+      <div style="color:rgba(255,255,255,.3);margin:12px 0 4px 0">/* ─── Typography ─── */</div>
+      <div>--font-display: <span style="color:rgba(255,255,255,.7)">"Barlow Condensed"</span>, sans-serif;</div>
+      <div>--font-body: <span style="color:rgba(255,255,255,.7)">"Barlow"</span>, sans-serif;</div>
+      <div>--font-mono: <span style="color:rgba(255,255,255,.7)">"DM Mono"</span>, monospace;</div>
+    </div>
+    <div style="color:rgba(255,255,255,.3)">}</div>
+    <div style="margin-top:16px;color:rgba(255,255,255,.3)">/* Google Fonts link &mdash; paste inside &lt;head&gt; */</div>
+    <div style="color:rgba(255,255,255,.6)">&lt;link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&amp;family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet"&gt;</div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div style="width:20px;height:20px;background:var(--white);clip-path:polygon(10% 0%,100% 50%,10% 100%)"></div>
+        <div class="footer-brand-name">Pressplay Sports Network</div>
+      </div>
+      <div class="footer-brand-tl">&ldquo;The sports business network.&rdquo;</div>
+      <div class="footer-div-chips">
+        <span class="fdc fdc-bridge">Pressplay Bridge &mdash; &ldquo;Where sports tech meets its market.&rdquo;</span>
+        <span class="fdc fdc-sports">PSN Sports &mdash; &ldquo;One brief. Every sports screen.&rdquo;</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Document index</div>
+      <div class="footer-col-item"><strong>Section 01</strong> Brand Architecture</div>
+      <div class="footer-col-item"><strong>Section 02</strong> Taglines &amp; Messaging</div>
+      <div class="footer-col-item"><strong>Section 03</strong> Logo System</div>
+      <div class="footer-col-item"><strong>Section 04</strong> Color System</div>
+      <div class="footer-col-item"><strong>Section 05</strong> Typography</div>
+      <div class="footer-col-item"><strong>Section 06</strong> Voice &amp; Tone</div>
+      <div class="footer-col-item"><strong>Section 07</strong> Website Architecture</div>
+      <div class="footer-col-item"><strong>Section 08</strong> Applications</div>
+      <div class="footer-col-item"><strong>Section 09</strong> Assets &amp; CSS Tokens</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Publisher network</div>
+      <div class="footer-col-item">JioHotstar &middot; FanCode &middot; Dream11</div>
+      <div class="footer-col-item">Shahid &middot; StarzPlay &middot; DAZN</div>
+      <div class="footer-col-title" style="margin-top:14px">Related entities</div>
+      <div class="footer-col-item">Pressplay Capital &mdash; sports tech fund</div>
+      <div class="footer-col-item">AthleteAgent.com &mdash; investment</div>
+      <div class="footer-col-item">Adsolut Media &mdash; board observer</div>
+      <div class="footer-col-item">Mehtta Ventures Dubai</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Brand contact</div>
+      <div class="footer-col-item"><strong>Vinit Mehta</strong><br>Founder, Pressplay Sports Network</div>
+      <div class="footer-col-item"><strong>Email</strong> vinitm@gmail.com</div>
+      <div class="footer-col-item"><strong>Location</strong> Dubai, UAE</div>
+      <div class="footer-col-item"><strong>Website</strong> pressplaysportsnetwork.com</div>
+      <div class="footer-col-item"><strong>Markets</strong> India &middot; MENA &middot; APAC</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">&copy; 2025 Pressplay Sports Network. Brand Guidelines v3.0. For internal and partner use. Third-party use requires written approval from PSN.</div>
+    <div class="footer-docid">DOC-PSN-BG-003 &middot; v3.0 &middot; 2025</div>
+  </div>
+</footer>
+
+</body>
+</html>
