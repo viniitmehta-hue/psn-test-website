@@ -1,4 +1,5 @@
 node_modules/
 temporary screenshots/
 .DS_Store
-*.png
+brand_assets/*.png
+Screenshot*.png
