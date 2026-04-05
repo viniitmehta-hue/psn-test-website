@@ -3,3 +3,5 @@ temporary screenshots/
 .DS_Store
 brand_assets/*.png
 Screenshot*.png
+!/viniitmehta.jpg
+!/psn-og-image.png

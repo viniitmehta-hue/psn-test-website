@@ -1186,8 +1186,14 @@ footer {
 
   <div class="about-grid">
     <div class="reveal">
-      <div class="about-founder-name">Vinit<br>Mehta</div>
-      <div class="about-founder-title">Founder · Pressplay Sports Network · Dubai, UAE & Mumbai, India</div>
+      <div style="display:flex;align-items:center;gap:28px;margin-bottom:24px;">
+        <img src="viniitmehta.jpg" alt="Vinit Mehta — Founder, Pressplay Sports Network"
+          style="width:180px;height:180px;object-fit:cover;object-position:center top;border-radius:50%;border:4px solid var(--blue);box-shadow:0 8px 32px rgba(16,51,184,.18);flex-shrink:0;">
+        <div>
+          <div class="about-founder-name" style="margin-bottom:6px;">Vinit<br>Mehta</div>
+          <div class="about-founder-title">Founder · Pressplay Sports Network · Dubai, UAE & Mumbai, India</div>
+        </div>
+      </div>
       <p class="about-body">Streaming pioneer in India having played a pivotal role in India's OTT revolution, Vinit has helped more than 200+ broadcasters, publishers and sports rights holders leverage video technology, content distribution and monetization - running commercial teams, closing deals and building the relationships that PSN now brings to its clients. Vinit is joined by a strong team and a vast network of sports and media professionals.</p>
       <p class="about-body">Pressplay Sports Network is built on direct operator experience: the publisher contacts are real, the deals are live, and the 90-day timelines are proven.</p>
       <div class="about-creds">
@@ -1293,47 +1299,21 @@ footer {
     </div>
 
     <div class="contact-form reveal reveal-delay-2">
-      <div class="form-path-toggle" id="pathToggle">
-        <button class="path-btn pb-bridge" onclick="setPath('bridge')">I'm a Startup →</button>
-        <button class="path-btn pb-sports pb-inactive" onclick="setPath('sports')">I'm a Brand →</button>
-      </div>
       <form id="contactForm" action="https://formspree.io/f/xjgpagnk" method="POST">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required>
-          </div>
-          <div class="form-group">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company" placeholder="Company name" required>
-          </div>
-        </div>
-        <div class="form-group" id="startupField">
-          <label for="product">What you've built</label>
-          <input type="text" id="product" name="product" placeholder="Brief description of your product / technology">
-        </div>
-        <div class="form-group" id="brandField" style="display:none">
-          <label for="sport">Sport &amp; market</label>
-          <input type="text" id="sport" name="sport" placeholder="e.g. Cricket · India + UAE · $200k budget">
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" placeholder="Name & company" required>
         </div>
         <div class="form-group">
-          <label for="markets">Target markets</label>
-          <select id="markets" name="markets">
-            <option value="">Select primary market</option>
-            <option>India</option>
-            <option>UAE / GCC</option>
-            <option>Saudi Arabia</option>
-            <option>India + MENA (both)</option>
-            <option>APAC</option>
-            <option>Global</option>
-          </select>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
         </div>
         <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us what you're looking to achieve..."></textarea>
+          <label for="message">How can we help?</label>
+          <textarea id="message" name="message" placeholder="Tell us what you're looking to achieve — one line is fine..." style="height:100px;resize:none;"></textarea>
         </div>
-        <input type="hidden" name="_subject" id="formSubject" value="New enquiry via PSN website">
-        <button type="submit" class="form-submit" id="formSubmit">Send to Pressplay Bridge →</button>
+        <input type="hidden" name="_subject" value="New enquiry via PSN website">
+        <button type="submit" class="form-submit" id="formSubmit">Get in Touch →</button>
         <div class="form-promise">We respond within 48 hours.</div>
       </form>
       <div id="formThankYou" style="display:none; text-align:center; padding:48px 24px; background:var(--blue-pale); border:1px solid rgba(16,51,184,.15); border-radius:12px;">
@@ -1507,33 +1487,6 @@ document.querySelectorAll('#hero .reveal').forEach(el => {
   el.classList.add('visible');
 });
 
-// Contact form path toggle
-function setPath(path) {
-  const bridgeBtn = document.querySelector('.pb-bridge');
-  const sportsBtn = document.querySelector('.pb-sports');
-  const startupField = document.getElementById('startupField');
-  const brandField = document.getElementById('brandField');
-  const submit = document.getElementById('formSubmit');
-  const marketsSelect = document.getElementById('markets');
-
-  if (path === 'bridge') {
-    bridgeBtn.classList.remove('pb-inactive');
-    sportsBtn.classList.add('pb-inactive');
-    startupField.style.display = 'block';
-    brandField.style.display = 'none';
-    submit.textContent = 'Send to Pressplay Bridge →';
-    submit.style.background = 'var(--bridge)';
-    marketsSelect.innerHTML = '<option value="">Select primary market</option><option>India</option><option>UAE / GCC</option><option>Saudi Arabia</option><option>India + MENA (both)</option><option>APAC</option><option>Global</option>';
-  } else {
-    sportsBtn.classList.remove('pb-inactive');
-    bridgeBtn.classList.add('pb-inactive');
-    startupField.style.display = 'none';
-    brandField.style.display = 'block';
-    submit.textContent = 'Send to PSN Sports →';
-    submit.style.background = 'var(--amber)';
-    marketsSelect.innerHTML = '<option value="">Select sport / market</option><option>Cricket · India</option><option>Football · MENA</option><option>Cricket + Football · India + MENA</option><option>Kabaddi · India</option><option>Motorsport · Global</option><option>Other</option>';
-  }
-}
 
 // Smooth active state for nav links
 document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(link => {
@@ -1559,7 +1512,6 @@ contactForm.addEventListener('submit', async function(e) {
     });
     if (res.ok) {
       contactForm.style.display = 'none';
-      document.getElementById('pathToggle').style.display = 'none';
       formThankYou.style.display = 'block';
     } else {
       btn.textContent = 'Error — please email us directly';
