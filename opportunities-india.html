@@ -3,27 +3,125 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PSN India Market Access — LinkedIn Card</title>
+  <title>India Opportunities — Pressplay Sports Network</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --navy:   #0A1F6B;
+      --blue:   #2563EB;
+      --amber:  #E8900A;
+      --gray:   #F5F7FA;
+      --mid:    #7B84A0;
+    }
+
     body {
-      background: #CDD2E0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 32px 24px 48px;
+      background: #E8EBF4;
       font-family: 'Barlow', sans-serif;
       min-height: 100vh;
     }
 
-    /* ── Variant switcher ── */
+    /* ══════ TOP NAV ══════ */
+    .top-nav {
+      background: var(--navy);
+      border-bottom: 3px solid var(--amber);
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(10,31,107,.4);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo-play {
+      width: 26px; height: 26px;
+      clip-path: polygon(10% 0%, 100% 50%, 10% 100%);
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+    .nav-logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .nav-logo-text span {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-home {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-home:hover { color: #fff; }
+    .nav-home::before {
+      content: '←';
+      font-size: 14px;
+    }
+
+    .nav-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--amber);
+      color: #fff;
+      text-decoration: none;
+      padding: 9px 20px;
+      border-radius: 3px;
+      white-space: nowrap;
+      box-shadow: 0 2px 12px rgba(232,144,10,.4);
+    }
+
+    /* ══════ PAGE WRAPPER ══════ */
+    .page {
+      padding: 36px 24px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    /* ══════ VARIANT SWITCHER ══════ */
     .switcher {
       display: flex;
       gap: 8px;
-      margin-bottom: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .switcher button {
       font-family: 'Barlow', sans-serif;
@@ -31,49 +129,56 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 9px 24px;
+      padding: 9px 22px;
       border-radius: 6px;
-      border: 2px solid #0A1F6B;
+      border: 2px solid var(--navy);
       background: #fff;
-      color: #0A1F6B;
+      color: var(--navy);
       cursor: pointer;
+      transition: background .15s, color .15s;
     }
     .switcher button.active {
-      background: #0A1F6B;
+      background: var(--navy);
       color: #fff;
     }
 
-    /* ── Canvas 1200×628 ── */
+    /* ══════ DESKTOP CANVAS (1200×628) ══════ */
+    .canvas-wrap {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: center;
+    }
+
     .canvas {
       width: 1200px;
       height: 628px;
-      background: #FFFFFF;
+      background: #fff;
       position: relative;
       display: flex;
       overflow: hidden;
       box-shadow:
-        0 2px 4px rgba(10,31,107,0.06),
-        0 12px 48px rgba(10,31,107,0.16),
-        0 32px 80px rgba(10,31,107,0.1);
+        0 2px 4px rgba(10,31,107,.06),
+        0 12px 48px rgba(10,31,107,.18),
+        0 32px 80px rgba(10,31,107,.1);
+      transform-origin: top center;
     }
 
-    /* 8px Cobalt left accent strip */
     .left-strip {
       width: 8px;
-      background: #2563EB;
+      background: var(--blue);
       flex-shrink: 0;
     }
 
-    /* 6px Amber bottom strip */
     .bottom-strip {
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 6px;
-      background: #E8900A;
+      background: var(--amber);
       z-index: 20;
     }
 
-    /* ════ LEFT COLUMN ════ */
+    /* LEFT COLUMN */
     .left-col {
       width: calc(58% - 8px);
       flex-shrink: 0;
@@ -83,12 +188,11 @@
     }
 
     .top-label {
-      font-family: 'Barlow', sans-serif;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: #2563EB;
+      color: var(--blue);
       margin-bottom: 14px;
     }
 
@@ -97,23 +201,20 @@
       font-weight: 900;
       font-size: 56px;
       line-height: 0.93;
-      color: #0A1F6B;
+      color: var(--navy);
       letter-spacing: -0.025em;
       text-transform: uppercase;
       margin-bottom: 16px;
     }
 
     .subheadline {
-      font-family: 'Barlow', sans-serif;
       font-size: 16px;
       font-weight: 400;
       line-height: 1.55;
-      color: #444444;
+      color: #444;
       max-width: 490px;
-      margin-bottom: 0;
     }
 
-    /* ── Stat block (swappable) ── */
     .stat-block {
       flex: 1;
       display: flex;
@@ -128,9 +229,8 @@
       align-items: center;
       padding: 13px 16px 13px 12px;
       background: #F3F6FF;
-      border-left: 3px solid #2563EB;
+      border-left: 3px solid var(--blue);
       border-radius: 0 8px 8px 0;
-      gap: 0;
     }
 
     .stat-icon {
@@ -145,7 +245,7 @@
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 34px;
       font-weight: 900;
-      color: #0A1F6B;
+      color: var(--navy);
       letter-spacing: -0.02em;
       line-height: 1;
       min-width: 148px;
@@ -162,28 +262,26 @@
     }
 
     .stat-label {
-      font-family: 'Barlow', sans-serif;
       font-size: 13px;
       font-weight: 400;
       color: #555;
       line-height: 1.4;
     }
 
-    /* CTA */
-    .cta {
+    .cta-line {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 22px;
       font-weight: 800;
-      color: #E8900A;
+      color: var(--amber);
       letter-spacing: 0.01em;
       text-transform: uppercase;
       padding-top: 4px;
     }
 
-    /* ════ RIGHT COLUMN ════ */
+    /* RIGHT COLUMN */
     .right-col {
       flex: 1;
-      background: #F5F7FA;
+      background: var(--gray);
       border-radius: 20px 0 0 20px;
       padding: 36px 32px 50px 32px;
       display: flex;
@@ -191,16 +289,14 @@
     }
 
     .right-label {
-      font-family: 'Barlow', sans-serif;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: #2563EB;
+      color: var(--blue);
       margin-bottom: 18px;
     }
 
-    /* 2×2 Stat cards */
     .stat-cards {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -209,45 +305,40 @@
     }
 
     .stat-card {
-      background: #FFFFFF;
+      background: #fff;
       border-radius: 12px;
       padding: 20px 22px;
       box-shadow:
-        0 1px 2px rgba(10,31,107,0.05),
-        0 4px 16px rgba(10,31,107,0.07),
-        0 0 0 1px rgba(10,31,107,0.04);
+        0 1px 2px rgba(10,31,107,.05),
+        0 4px 16px rgba(10,31,107,.07),
+        0 0 0 1px rgba(10,31,107,.04);
     }
+    .stat-card.accent-l { border-left: 3px solid var(--blue); border-radius: 2px 12px 12px 2px; }
+    .stat-card.accent-a { border-left: 3px solid var(--amber); border-radius: 2px 12px 12px 2px; }
 
     .sc-number {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 44px;
       font-weight: 900;
-      color: #0A1F6B;
+      color: var(--navy);
       letter-spacing: -0.03em;
       line-height: 1;
       margin-bottom: 7px;
     }
 
     .sc-label {
-      font-family: 'Barlow', sans-serif;
       font-size: 12px;
       font-weight: 600;
-      color: #7B84A0;
+      color: var(--mid);
       line-height: 1.4;
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
-    /* Cobalt accent bar on left of first two cards */
-    .stat-card.accent-l { border-left: 3px solid #2563EB; border-radius: 2px 12px 12px 2px; }
-    .stat-card.accent-a { border-left: 3px solid #E8900A; border-radius: 2px 12px 12px 2px; }
-
-    /* Sports content strip */
     .content-strip {
-      font-family: 'Barlow', sans-serif;
       font-size: 12.5px;
       font-weight: 600;
-      color: #0A1F6B;
+      color: var(--navy);
       letter-spacing: 0.09em;
       text-align: center;
       padding: 13px 0;
@@ -255,10 +346,8 @@
       border-bottom: 1px solid #DDE2F0;
     }
 
-    /* Spacer */
     .spacer { flex: 1; }
 
-    /* PSN Branding */
     .psn-branding {
       padding-top: 16px;
       border-top: 1px solid #DDE2F0;
@@ -277,214 +366,563 @@
       font-size: 17px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #0A1F6B;
+      color: var(--navy);
       line-height: 1;
     }
 
     .psn-tagline {
-      font-family: 'Barlow', sans-serif;
       font-size: 12px;
-      font-weight: 400;
       color: #999;
       margin-bottom: 3px;
       padding-left: 29px;
     }
 
     .psn-contact {
-      font-family: 'Barlow', sans-serif;
       font-size: 12px;
       font-weight: 500;
-      color: #2563EB;
+      color: var(--blue);
       padding-left: 29px;
+    }
+
+    /* ══════ MOBILE CARD (hidden on desktop) ══════ */
+    .mobile-card { display: none; }
+
+    /* ══════ RESPONSIVE SCALING ══════ */
+
+    /* Scale canvas down on smaller desktop/tablet before hiding it */
+    @media (max-width: 1280px) {
+      .canvas {
+        transform: scale(0.88);
+        margin: -38px auto;  /* compensate for scale shrink */
+      }
+    }
+    @media (max-width: 1100px) {
+      .canvas {
+        transform: scale(0.76);
+        margin: -75px auto;
+      }
+    }
+
+    /* Below 900px — hide the canvas entirely, show mobile card */
+    @media (max-width: 900px) {
+      .canvas-wrap { display: none; }
+      .mobile-card { display: block; }
+
+      .top-nav { padding: 0 20px; height: 60px; }
+      .nav-logo-text { font-size: 13px; }
+      .nav-home { font-size: 12px; }
+      .nav-cta { display: none; }
+
+      .page { padding: 24px 16px 48px; gap: 20px; }
+
+      /* Mobile card layout */
+      .mobile-card {
+        width: 100%;
+        max-width: 560px;
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow:
+          0 2px 4px rgba(10,31,107,.06),
+          0 8px 32px rgba(10,31,107,.14);
+        border-top: 6px solid var(--blue);
+        border-bottom: 4px solid var(--amber);
+      }
+
+      .mc-header {
+        background: var(--navy);
+        padding: 20px 20px 16px;
+      }
+
+      .mc-eyebrow {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.5);
+        margin-bottom: 8px;
+      }
+
+      .mc-headline {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 900;
+        font-size: 36px;
+        line-height: 0.92;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        margin-bottom: 10px;
+      }
+
+      .mc-sub {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.55;
+        color: rgba(255,255,255,0.65);
+      }
+
+      .mc-body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      /* Mobile stat rows */
+      .mc-stat-block {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .mc-stat-row {
+        display: flex;
+        align-items: center;
+        background: #F3F6FF;
+        border-left: 3px solid var(--blue);
+        border-radius: 0 8px 8px 0;
+        padding: 12px 14px;
+        gap: 10px;
+      }
+
+      .mc-stat-icon { font-size: 18px; flex-shrink: 0; }
+
+      .mc-stat-number {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 22px;
+        font-weight: 900;
+        color: var(--navy);
+        letter-spacing: -0.02em;
+        line-height: 1;
+        min-width: 100px;
+        flex-shrink: 0;
+      }
+
+      .mc-stat-label {
+        font-size: 12px;
+        color: #555;
+        line-height: 1.4;
+        border-left: 1px solid #C5CFF0;
+        padding-left: 10px;
+      }
+
+      /* Mobile stat cards grid */
+      .mc-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .mc-card {
+        background: var(--gray);
+        border-radius: 10px;
+        padding: 16px;
+        border-left: 3px solid var(--blue);
+        border-radius: 2px 10px 10px 2px;
+      }
+      .mc-card.amber-l { border-left-color: var(--amber); }
+
+      .mc-card-num {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 32px;
+        font-weight: 900;
+        color: var(--navy);
+        letter-spacing: -0.03em;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+
+      .mc-card-lbl {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--mid);
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        line-height: 1.35;
+      }
+
+      /* Mobile sports strip */
+      .mc-sports-strip {
+        font-size: 11.5px;
+        font-weight: 600;
+        color: var(--navy);
+        letter-spacing: 0.07em;
+        text-align: center;
+        padding: 12px 0;
+        border-top: 1px solid #DDE2F0;
+        border-bottom: 1px solid #DDE2F0;
+      }
+
+      /* Mobile CTA */
+      .mc-cta {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--amber);
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+        text-align: center;
+        padding: 4px 0 2px;
+      }
+
+      /* Mobile PSN branding */
+      .mc-branding {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding-top: 14px;
+        border-top: 1px solid #DDE2F0;
+      }
+
+      .mc-psn-name {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 900;
+        font-size: 14px;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--navy);
+        line-height: 1;
+      }
+
+      .mc-psn-sub {
+        font-size: 11px;
+        color: var(--blue);
+      }
+
+      /* Contact CTA button */
+      .mc-contact-btn {
+        display: block;
+        background: var(--navy);
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 16px;
+        border-radius: 8px;
+        margin-top: 4px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .mc-cards { grid-template-columns: 1fr 1fr; }
+      .mc-headline { font-size: 30px; }
+      .mc-sports-strip { font-size: 10.5px; letter-spacing: 0.04em; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── Variant switcher ── -->
-<div class="switcher">
-  <button class="active" onclick="setVariant('default', this)">Default</button>
-  <button onclick="setVariant('motorsport', this)">🏎 Motorsport</button>
-  <button onclick="setVariant('football', this)">⚽ Football</button>
-  <button onclick="setVariant('golf', this)">⛳ Golf</button>
-</div>
-
-<!-- ── 1200×628 Card ── -->
-<div class="canvas">
-
-  <div class="left-strip"></div>
-
-  <!-- LEFT COLUMN -->
-  <div class="left-col">
-
-    <div class="top-label">Pressplay Sports Network &nbsp;·&nbsp; India Market Access</div>
-
-    <div class="headline">
-      52 Million Sports Fans.<br>
-      One Platform.<br>
-      Your Brand.
+<!-- ══════ TOP NAV ══════ -->
+<nav class="top-nav">
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-play"></div>
+    <div class="nav-logo-text">
+      Pressplay Sports Network
+      <span>The sports business network</span>
     </div>
-
-    <div class="subheadline">
-      PSN connects global brands to premium live sports inventory on India's #1 sports entertainment platform.
-    </div>
-
-    <!-- ── Swappable stat block ── -->
-    <div class="stat-block">
-
-      <!-- DEFAULT rows -->
-      <div class="stat-row" data-v="default">
-        <span class="stat-icon">🎯</span>
-        <span class="stat-number">90% Male</span>
-        <span class="stat-sep"></span>
-        <span class="stat-label">75% aged 25+ &mdash; decision-makers, not casual viewers</span>
-      </div>
-      <div class="stat-row" data-v="default">
-        <span class="stat-icon">⏱️</span>
-        <span class="stat-number">180 Min</span>
-        <span class="stat-sep"></span>
-        <span class="stat-label">Avg per month &mdash; deep engagement during live sport</span>
-      </div>
-      <div class="stat-row" data-v="default">
-        <span class="stat-icon">🏆</span>
-        <span class="stat-number">50,000+</span>
-        <span class="stat-sep"></span>
-        <span class="stat-label">Matches/year &nbsp;·&nbsp; F1 · ISL · La Liga · ATP · Golf</span>
-      </div>
-
-      <!-- MOTORSPORT rows -->
-      <div class="stat-row" data-v="motorsport" style="display:none;">
-        <span class="stat-icon">🏎️</span>
-        <span class="stat-number">21 Mn</span>
-        <span class="stat-sep"></span>
-        <span class="stat-label">Season reach across F1 live coverage in India</span>
-      </div>
-      <div class="stat-row" data-v="motorsport" style="display:none;">
-        <span class="stat-icon">⏱️</span>
-        <span class="stat-number">48 Min</span>
-        <span class="stat-sep"></span>
-        <span class="stat-label">Average engagement per race weekend</span>
-      </div>
-      <div class="stat-row" data-v="motorsport" style="display:none;">
-        <span class="stat-icon">📈</span>
-        <span class="stat-number">32% YOY</span>
-        <span class="stat-sep"></span>
-        <span class="stat-label">Fan growth &mdash; fastest growing sport in India</span>
-      </div>
-
-      <!-- FOOTBALL rows -->
-      <div class="stat-row" data-v="football" style="display:none;">
-        <span class="stat-icon">⚽</span>
-        <span class="stat-number">15 Mn</span>
-        <span class="stat-sep"></span>
-        <span class="stat-label">Expected reach per football season</span>
-      </div>
-      <div class="stat-row" data-v="football" style="display:none;">
-        <span class="stat-icon">🌐</span>
-        <span class="stat-number">157 Mn</span>
-        <span class="stat-sep"></span>
-        <span class="stat-label">Cross-platform football audience in India</span>
-      </div>
-      <div class="stat-row" data-v="football" style="display:none;">
-        <span class="stat-icon">❤️</span>
-        <span class="stat-number">89%</span>
-        <span class="stat-sep"></span>
-        <span class="stat-label">Fan passion score &mdash; ISL · La Liga · Saudi Pro League</span>
-      </div>
-
-      <!-- GOLF rows -->
-      <div class="stat-row" data-v="golf" style="display:none;">
-        <span class="stat-icon">⛳</span>
-        <span class="stat-number">1 Mn+</span>
-        <span class="stat-sep"></span>
-        <span class="stat-label">Digital viewers per tournament</span>
-      </div>
-      <div class="stat-row" data-v="golf" style="display:none;">
-        <span class="stat-icon">📈</span>
-        <span class="stat-number">15% YOY</span>
-        <span class="stat-sep"></span>
-        <span class="stat-label">Audience growth &mdash; premium, affluent fanbase</span>
-      </div>
-      <div class="stat-row" data-v="golf" style="display:none;">
-        <span class="stat-icon">🏌️</span>
-        <span class="stat-number">42 Tours</span>
-        <span class="stat-sep"></span>
-        <span class="stat-label">48 weeks of live golf &nbsp;·&nbsp; PGA Tour · DP World</span>
-      </div>
-
-    </div>
-    <!-- /stat-block -->
-
-    <div class="cta">One brief. Every sports screen in India.</div>
-
+  </a>
+  <div class="nav-right">
+    <a href="/" class="nav-home">Home</a>
+    <a href="mailto:viniitmehta@pressplaycapital.com" class="nav-cta">Get Started →</a>
   </div>
-  <!-- /left-col -->
+</nav>
 
-  <!-- RIGHT COLUMN -->
-  <div class="right-col">
+<!-- ══════ PAGE ══════ -->
+<div class="page">
 
-    <div class="right-label">Platform Snapshot</div>
+  <!-- Variant switcher -->
+  <div class="switcher">
+    <button class="active" onclick="setVariant('default', this)">Default</button>
+    <button onclick="setVariant('motorsport', this)">🏎 Motorsport</button>
+    <button onclick="setVariant('football', this)">⚽ Football</button>
+    <button onclick="setVariant('golf', this)">⛳ Golf</button>
+  </div>
 
-    <div class="stat-cards">
-      <div class="stat-card accent-l">
-        <div class="sc-number">52 Mn</div>
-        <div class="sc-label">MAU</div>
+  <!-- ══════ DESKTOP CANVAS ══════ -->
+  <div class="canvas-wrap">
+    <div class="canvas">
+      <div class="left-strip"></div>
+
+      <!-- LEFT COLUMN -->
+      <div class="left-col">
+        <div class="top-label">Pressplay Sports Network &nbsp;·&nbsp; India Market Access</div>
+        <div class="headline">
+          52 Million Sports Fans.<br>
+          One Platform.<br>
+          Your Brand.
+        </div>
+        <div class="subheadline">
+          PSN connects global brands to premium live sports inventory on India's #1 sports entertainment platform.
+        </div>
+
+        <div class="stat-block">
+          <!-- DEFAULT -->
+          <div class="stat-row" data-v="default">
+            <span class="stat-icon">🎯</span>
+            <span class="stat-number">90% Male</span>
+            <span class="stat-sep"></span>
+            <span class="stat-label">75% aged 25+ &mdash; decision-makers, not casual viewers</span>
+          </div>
+          <div class="stat-row" data-v="default">
+            <span class="stat-icon">⏱️</span>
+            <span class="stat-number">180 Min</span>
+            <span class="stat-sep"></span>
+            <span class="stat-label">Avg per month &mdash; deep engagement during live sport</span>
+          </div>
+          <div class="stat-row" data-v="default">
+            <span class="stat-icon">🏆</span>
+            <span class="stat-number">50,000+</span>
+            <span class="stat-sep"></span>
+            <span class="stat-label">Matches/year &nbsp;·&nbsp; F1 · ISL · La Liga · ATP · Golf</span>
+          </div>
+          <!-- MOTORSPORT -->
+          <div class="stat-row" data-v="motorsport" style="display:none;">
+            <span class="stat-icon">🏎️</span>
+            <span class="stat-number">21 Mn</span>
+            <span class="stat-sep"></span>
+            <span class="stat-label">Season reach across F1 live coverage in India</span>
+          </div>
+          <div class="stat-row" data-v="motorsport" style="display:none;">
+            <span class="stat-icon">⏱️</span>
+            <span class="stat-number">48 Min</span>
+            <span class="stat-sep"></span>
+            <span class="stat-label">Average engagement per race weekend</span>
+          </div>
+          <div class="stat-row" data-v="motorsport" style="display:none;">
+            <span class="stat-icon">📈</span>
+            <span class="stat-number">32% YOY</span>
+            <span class="stat-sep"></span>
+            <span class="stat-label">Fan growth &mdash; fastest growing sport in India</span>
+          </div>
+          <!-- FOOTBALL -->
+          <div class="stat-row" data-v="football" style="display:none;">
+            <span class="stat-icon">⚽</span>
+            <span class="stat-number">15 Mn</span>
+            <span class="stat-sep"></span>
+            <span class="stat-label">Expected reach per football season</span>
+          </div>
+          <div class="stat-row" data-v="football" style="display:none;">
+            <span class="stat-icon">🌐</span>
+            <span class="stat-number">157 Mn</span>
+            <span class="stat-sep"></span>
+            <span class="stat-label">Cross-platform football audience in India</span>
+          </div>
+          <div class="stat-row" data-v="football" style="display:none;">
+            <span class="stat-icon">❤️</span>
+            <span class="stat-number">89%</span>
+            <span class="stat-sep"></span>
+            <span class="stat-label">Fan passion score &mdash; ISL · La Liga · Saudi Pro League</span>
+          </div>
+          <!-- GOLF -->
+          <div class="stat-row" data-v="golf" style="display:none;">
+            <span class="stat-icon">⛳</span>
+            <span class="stat-number">1 Mn+</span>
+            <span class="stat-sep"></span>
+            <span class="stat-label">Digital viewers per tournament</span>
+          </div>
+          <div class="stat-row" data-v="golf" style="display:none;">
+            <span class="stat-icon">📈</span>
+            <span class="stat-number">15% YOY</span>
+            <span class="stat-sep"></span>
+            <span class="stat-label">Audience growth &mdash; premium, affluent fanbase</span>
+          </div>
+          <div class="stat-row" data-v="golf" style="display:none;">
+            <span class="stat-icon">🏌️</span>
+            <span class="stat-number">42 Tours</span>
+            <span class="stat-sep"></span>
+            <span class="stat-label">48 weeks of live golf &nbsp;·&nbsp; PGA Tour · DP World</span>
+          </div>
+        </div>
+
+        <div class="cta-line">One brief. Every sports screen in India.</div>
       </div>
-      <div class="stat-card accent-l">
-        <div class="sc-number">80%</div>
-        <div class="sc-label">Top Cities</div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right-col">
+        <div class="right-label">Platform Snapshot</div>
+        <div class="stat-cards">
+          <div class="stat-card accent-l">
+            <div class="sc-number">52 Mn</div>
+            <div class="sc-label">MAU</div>
+          </div>
+          <div class="stat-card accent-l">
+            <div class="sc-number">80%</div>
+            <div class="sc-label">Top Cities</div>
+          </div>
+          <div class="stat-card accent-a">
+            <div class="sc-number">#1</div>
+            <div class="sc-label">Sports App<br>India 2024</div>
+          </div>
+          <div class="stat-card accent-a">
+            <div class="sc-number">15%+</div>
+            <div class="sc-label">CTV Growth<br>YOY</div>
+          </div>
+        </div>
+        <div class="content-strip">
+          Cricket &nbsp;&middot;&nbsp; Football &nbsp;&middot;&nbsp; F1 &nbsp;&middot;&nbsp; ATP &nbsp;&middot;&nbsp; PGA Tour &nbsp;&middot;&nbsp; Saudi Pro League
+        </div>
+        <div class="spacer"></div>
+        <div class="psn-branding">
+          <div class="psn-wordmark">
+            <svg width="22" height="22" viewBox="0 0 50 50" fill="none">
+              <polygon points="10,6 44,25 10,44" fill="#E8900A" stroke="#E8900A" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+            </svg>
+            <span class="psn-name">Pressplay Sports Network</span>
+          </div>
+          <div class="psn-tagline">The sports business network.</div>
+          <div class="psn-contact">viniitmehta@pressplaycapital.com</div>
+        </div>
       </div>
-      <div class="stat-card accent-a">
-        <div class="sc-number">#1</div>
-        <div class="sc-label">Sports App<br>India 2024</div>
+
+      <div class="bottom-strip"></div>
+    </div>
+  </div>
+  <!-- /canvas-wrap -->
+
+  <!-- ══════ MOBILE CARD ══════ -->
+  <div class="mobile-card">
+    <div class="mc-header">
+      <div class="mc-eyebrow">Pressplay Sports Network · India Market Access</div>
+      <div class="mc-headline">
+        52 Million<br>Sports Fans.<br>
+        One Platform.<br>Your Brand.
       </div>
-      <div class="stat-card accent-a">
-        <div class="sc-number">15%+</div>
-        <div class="sc-label">CTV Growth<br>YOY</div>
-      </div>
+      <div class="mc-sub">PSN connects global brands to premium live sports inventory on India's #1 sports entertainment platform.</div>
     </div>
 
-    <div class="content-strip">
-      Cricket &nbsp;&middot;&nbsp; Football &nbsp;&middot;&nbsp; F1 &nbsp;&middot;&nbsp; ATP &nbsp;&middot;&nbsp; PGA Tour &nbsp;&middot;&nbsp; Saudi Pro League
-    </div>
+    <div class="mc-body">
 
-    <div class="spacer"></div>
+      <!-- Mobile stat block (swappable) -->
+      <div class="mc-stat-block">
+        <!-- DEFAULT -->
+        <div class="mc-stat-row" data-mv="default">
+          <span class="mc-stat-icon">🎯</span>
+          <span class="mc-stat-number">90% Male</span>
+          <span class="mc-stat-label">75% aged 25+ — decision-makers</span>
+        </div>
+        <div class="mc-stat-row" data-mv="default">
+          <span class="mc-stat-icon">⏱️</span>
+          <span class="mc-stat-number">180 Min</span>
+          <span class="mc-stat-label">Avg/month — deep live sport engagement</span>
+        </div>
+        <div class="mc-stat-row" data-mv="default">
+          <span class="mc-stat-icon">🏆</span>
+          <span class="mc-stat-number">50,000+</span>
+          <span class="mc-stat-label">Matches/year · F1 · ISL · La Liga · ATP</span>
+        </div>
+        <!-- MOTORSPORT -->
+        <div class="mc-stat-row" data-mv="motorsport" style="display:none;">
+          <span class="mc-stat-icon">🏎️</span>
+          <span class="mc-stat-number">21 Mn</span>
+          <span class="mc-stat-label">Season reach — F1 live in India</span>
+        </div>
+        <div class="mc-stat-row" data-mv="motorsport" style="display:none;">
+          <span class="mc-stat-icon">⏱️</span>
+          <span class="mc-stat-number">48 Min</span>
+          <span class="mc-stat-label">Avg engagement per race weekend</span>
+        </div>
+        <div class="mc-stat-row" data-mv="motorsport" style="display:none;">
+          <span class="mc-stat-icon">📈</span>
+          <span class="mc-stat-number">32% YOY</span>
+          <span class="mc-stat-label">Fan growth — fastest growing sport</span>
+        </div>
+        <!-- FOOTBALL -->
+        <div class="mc-stat-row" data-mv="football" style="display:none;">
+          <span class="mc-stat-icon">⚽</span>
+          <span class="mc-stat-number">15 Mn</span>
+          <span class="mc-stat-label">Expected reach per football season</span>
+        </div>
+        <div class="mc-stat-row" data-mv="football" style="display:none;">
+          <span class="mc-stat-icon">🌐</span>
+          <span class="mc-stat-number">157 Mn</span>
+          <span class="mc-stat-label">Cross-platform football audience</span>
+        </div>
+        <div class="mc-stat-row" data-mv="football" style="display:none;">
+          <span class="mc-stat-icon">❤️</span>
+          <span class="mc-stat-number">89%</span>
+          <span class="mc-stat-label">Fan passion score — ISL · La Liga</span>
+        </div>
+        <!-- GOLF -->
+        <div class="mc-stat-row" data-mv="golf" style="display:none;">
+          <span class="mc-stat-icon">⛳</span>
+          <span class="mc-stat-number">1 Mn+</span>
+          <span class="mc-stat-label">Digital viewers per tournament</span>
+        </div>
+        <div class="mc-stat-row" data-mv="golf" style="display:none;">
+          <span class="mc-stat-icon">📈</span>
+          <span class="mc-stat-number">15% YOY</span>
+          <span class="mc-stat-label">Growth — premium, affluent fanbase</span>
+        </div>
+        <div class="mc-stat-row" data-mv="golf" style="display:none;">
+          <span class="mc-stat-icon">🏌️</span>
+          <span class="mc-stat-number">42 Tours</span>
+          <span class="mc-stat-label">48 weeks · PGA Tour · DP World</span>
+        </div>
+      </div>
 
-    <div class="psn-branding">
-      <div class="psn-wordmark">
-        <!-- Pressplay Capital logo accurate recreation -->
-        <svg width="22" height="22" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="10,6 44,25 10,44"
-                   fill="#E8900A"
-                   stroke="#E8900A"
-                   stroke-width="10"
-                   stroke-linejoin="round"
-                   stroke-linecap="round"/>
+      <!-- Platform snapshot cards -->
+      <div class="mc-cards">
+        <div class="mc-card">
+          <div class="mc-card-num">52 Mn</div>
+          <div class="mc-card-lbl">MAU</div>
+        </div>
+        <div class="mc-card">
+          <div class="mc-card-num">80%</div>
+          <div class="mc-card-lbl">Top Cities</div>
+        </div>
+        <div class="mc-card amber-l">
+          <div class="mc-card-num">#1</div>
+          <div class="mc-card-lbl">Sports App India 2024</div>
+        </div>
+        <div class="mc-card amber-l">
+          <div class="mc-card-num">15%+</div>
+          <div class="mc-card-lbl">CTV Growth YOY</div>
+        </div>
+      </div>
+
+      <div class="mc-sports-strip">
+        Cricket &nbsp;·&nbsp; Football &nbsp;·&nbsp; F1 &nbsp;·&nbsp; ATP &nbsp;·&nbsp; PGA Tour &nbsp;·&nbsp; Saudi Pro League
+      </div>
+
+      <div class="mc-cta">One brief. Every sports screen in India.</div>
+
+      <a href="mailto:viniitmehta@pressplaycapital.com" class="mc-contact-btn">Get in Touch →</a>
+
+      <div class="mc-branding">
+        <svg width="18" height="18" viewBox="0 0 50 50" fill="none">
+          <polygon points="10,6 44,25 10,44" fill="#E8900A" stroke="#E8900A" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
         </svg>
-        <span class="psn-name">Pressplay Sports Network</span>
+        <div>
+          <div class="mc-psn-name">Pressplay Sports Network</div>
+          <div class="mc-psn-sub">viniitmehta@pressplaycapital.com</div>
+        </div>
       </div>
-      <div class="psn-tagline">The sports business network.</div>
-      <div class="psn-contact">viniitmehta@pressplaycapital.com</div>
+
     </div>
-
   </div>
-  <!-- /right-col -->
-
-  <div class="bottom-strip"></div>
+  <!-- /mobile-card -->
 
 </div>
-<!-- /canvas -->
+<!-- /page -->
 
 <script>
   function setVariant(v, btn) {
     document.querySelectorAll('.switcher button').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
+    // Desktop rows
     document.querySelectorAll('.stat-row').forEach(row => {
       row.style.display = row.dataset.v === v ? 'flex' : 'none';
     });
+    // Mobile rows
+    document.querySelectorAll('.mc-stat-row').forEach(row => {
+      row.style.display = row.dataset.mv === v ? 'flex' : 'none';
+    });
   }
 
-  // Auto-apply variant from URL ?v=motorsport etc.
   (function() {
     const p = new URLSearchParams(location.search).get('v') || 'default';
     const btn = [...document.querySelectorAll('.switcher button')]
