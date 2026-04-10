@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinkedIn — Fanzword × Pressplay Podcast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      height: 627px;
+      overflow: hidden;
+    }
+    body {
+      width: 1200px;
+      height: 627px;
+      overflow: hidden;
+      background: #070712;
+      font-family: 'Barlow', sans-serif;
+    }
+
+    .canvas {
+      width: 1200px;
+      height: 627px;
+      position: relative;
+      background: #070712;
+      overflow: hidden;
+    }
+
+    /* ── Background glow layers ── */
+    .glow-green {
+      position: absolute;
+      bottom: -80px; right: -60px;
+      width: 680px; height: 560px;
+      background: radial-gradient(ellipse at center, rgba(39,205,149,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .glow-blue {
+      position: absolute;
+      top: -100px; left: -80px;
+      width: 600px; height: 500px;
+      background: radial-gradient(ellipse at center, rgba(16,51,184,0.32) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .glow-mid {
+      position: absolute;
+      top: 50%; left: 38%;
+      transform: translate(-50%, -50%);
+      width: 500px; height: 200px;
+      background: radial-gradient(ellipse, rgba(39,205,149,0.055) 0%, transparent 80%);
+      pointer-events: none;
+    }
+    .glow-gold {
+      position: absolute;
+      top: 0; right: 200px;
+      width: 280px; height: 200px;
+      background: radial-gradient(ellipse at center, rgba(240,165,0,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* SVG grain */
+    .grain {
+      position: absolute; inset: 0;
+      opacity: 0.045;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Subtle grid */
+    .grid-lines {
+      position: absolute; inset: 0; z-index: 2;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Vertical divider — right panel separator */
+    .v-divider {
+      position: absolute;
+      right: 280px; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(39,205,149,0.2) 20%,
+        rgba(39,205,149,0.2) 80%,
+        transparent 100%);
+      z-index: 8;
+    }
+
+    /* Horizontal top bar */
+    .top-bar-line {
+      position: absolute;
+      top: 72px; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right,
+        transparent 0%,
+        rgba(255,255,255,0.07) 20%,
+        rgba(255,255,255,0.07) 80%,
+        transparent 100%);
+      z-index: 8;
+    }
+
+    /* Green accent stripe on left edge */
+    .left-stripe {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        #27CD95 25%,
+        #27CD95 75%,
+        transparent 100%);
+      z-index: 10;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .content {
+      position: absolute;
+      top: 0; left: 0; right: 280px; bottom: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      padding: 28px 44px 28px 52px;
+    }
+
+    /* Top strip: show branding */
+    .show-strip {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 0;
+      height: 44px;
+    }
+
+    /* PSN logo mark inline */
+    .psn-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .psn-play {
+      width: 22px; height: 22px;
+      clip-path: polygon(8% 0%, 100% 50%, 8% 100%);
+      background: #F0A500;
+      flex-shrink: 0;
+    }
+    .psn-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1;
+    }
+    .psn-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      line-height: 1;
+    }
+
+    .show-sep {
+      width: 1px; height: 28px;
+      background: rgba(255,255,255,0.14);
+    }
+
+    .show-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #27CD95;
+    }
+
+    .ep-badge {
+      margin-left: auto;
+      background: rgba(39,205,149,0.1);
+      border: 1px solid rgba(39,205,149,0.28);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: #27CD95;
+    }
+
+    /* Eyebrow */
+    .eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #F0A500;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px; height: 1.5px;
+      background: #F0A500;
+      flex-shrink: 0;
+    }
+
+    /* Main headline */
+    .headline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 74px;
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hl-green { color: #27CD95; }
+    .hl-gold  { color: #F0A500; }
+
+    /* Sub-description */
+    .subline {
+      font-family: 'Barlow', sans-serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      margin-bottom: 14px;
+    }
+    .subline strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+
+    /* Topic chips */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .chip {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 5px 13px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .chip-green {
+      background: rgba(39,205,149,0.12);
+      border: 1px solid rgba(39,205,149,0.28);
+      color: #27CD95;
+    }
+    .chip-dark {
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.48);
+    }
+    .chip-gold {
+      background: rgba(240,165,0,0.1);
+      border: 1px solid rgba(240,165,0,0.25);
+      color: #F0A500;
+    }
+
+    /* Guest block */
+    .guest-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .guest-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1033B8 0%, #27CD95 100%);
+      border: 2px solid rgba(39,205,149,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: #fff;
+      flex-shrink: 0;
+      letter-spacing: -0.02em;
+    }
+    .guest-info { flex: 1; }
+    .guest-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.01em;
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .guest-role {
+      font-family: 'Barlow', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.03em;
+    }
+    .guest-role span {
+      color: #27CD95;
+      font-weight: 600;
+    }
+
+    .with-tag {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      padding: 0 4px;
+    }
+
+    /* ── RIGHT PANEL ── */
+    .right-panel {
+      position: absolute;
+      right: 0; top: 0;
+      width: 280px;
+      height: 100%;
+      z-index: 9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 28px 28px;
+    }
+
+    /* Fanzword logo mark */
+    .fanzword-block {
+      width: 100%;
+      text-align: center;
+    }
+    .fanzword-icon {
+      width: 64px; height: 64px;
+      background: linear-gradient(145deg, #25284B 0%, #1a1d38 100%);
+      border: 2px solid rgba(39,205,149,0.35);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      box-shadow:
+        0 0 0 1px rgba(39,205,149,0.12),
+        0 8px 32px rgba(0,0,0,0.5),
+        0 0 40px rgba(39,205,149,0.1);
+    }
+    .fanzword-wordmark {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .fanzword-tagline {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .fanzword-tagline span { color: #27CD95; }
+
+    /* X / collab symbol */
+    .collab-x {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      color: rgba(255,255,255,0.1);
+      letter-spacing: -0.04em;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .collab-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+    .collab-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(39,205,149,0.4);
+      flex-shrink: 0;
+    }
+
+    /* Feature card */
+    .feature-card {
+      width: 100%;
+      background: linear-gradient(155deg, rgba(16,51,184,0.22) 0%, rgba(39,205,149,0.08) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 18px 16px;
+      text-align: center;
+      box-shadow:
+        0 0 0 1px rgba(39,205,149,0.1),
+        0 12px 40px rgba(0,0,0,0.5),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .fc-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 9px;
+    }
+    .fc-topics {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .fc-topic {
+      font-family: 'Barlow', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      padding: 5px 9px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .fc-topic::before {
+      content: '';
+      display: block;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #27CD95;
+      opacity: 0.65;
+      flex-shrink: 0;
+    }
+
+    /* Pressplay Capital logo component (reusable across card) */
+    .ppc-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .ppc-logo svg { flex-shrink: 0; }
+    .ppc-text { line-height: 1; }
+    .ppc-pressplay {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      color: #fff;
+      display: block;
+    }
+    .ppc-capital {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      display: block;
+    }
+
+    /* Right panel footer */
+    .right-footer {
+      width: 100%;
+      text-align: center;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .rf-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+<div class="canvas">
+
+  <!-- Background glows -->
+  <div class="glow-blue"></div>
+  <div class="glow-green"></div>
+  <div class="glow-mid"></div>
+  <div class="glow-gold"></div>
+
+  <!-- Grain texture -->
+  <svg class="grain" xmlns="http://www.w3.org/2000/svg" width="1200" height="627">
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#noise)" opacity="1"/>
+  </svg>
+
+  <!-- Grid -->
+  <div class="grid-lines"></div>
+
+  <!-- Left green stripe -->
+  <div class="left-stripe"></div>
+
+  <!-- Horizontal divider under top bar -->
+  <div class="top-bar-line"></div>
+
+  <!-- Vertical divider -->
+  <div class="v-divider"></div>
+
+  <!-- ── MAIN CONTENT ── -->
+  <div class="content">
+
+    <!-- Show strip -->
+    <div class="show-strip">
+      <!-- Pressplay Capital logo — accurate recreation -->
+      <div class="ppc-logo">
+        <svg width="32" height="32" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="10,6 44,25 10,44"
+                   fill="#C75A14"
+                   stroke="#C75A14"
+                   stroke-width="10"
+                   stroke-linejoin="round"
+                   stroke-linecap="round"/>
+        </svg>
+        <div class="ppc-text">
+          <span class="ppc-pressplay" style="font-size:19px;">Pressplay</span>
+          <span class="ppc-capital" style="font-size:12px;">Capital</span>
+        </div>
+      </div>
+      <div class="show-sep"></div>
+      <div class="show-label">The Podcast</div>
+      <div class="ep-badge">New Episode</div>
+    </div>
+
+    <!-- Eyebrow -->
+    <div class="eyebrow">Football · Fan Engagement · MENA</div>
+
+    <!-- Headline -->
+    <div class="headline">
+      Building<br>
+      <span class="hl-green">Football's</span><br>
+      Stickiest<br>
+      <span class="hl-gold">Fan Platform</span>
+    </div>
+
+    <!-- Subline -->
+    <div class="subline">
+      What does it <strong>really take</strong> to build a sticky football fan platform
+      in the Middle East? Product loops, prediction games, rewards mechanics,
+      and the <strong>MENA distribution moat</strong> that matters most.
+    </div>
+
+    <!-- Topic chips -->
+    <div class="chips">
+      <span class="chip chip-green">Predictions</span>
+      <span class="chip chip-green">Fan Retention</span>
+      <span class="chip chip-gold">Monetization</span>
+      <span class="chip chip-dark">Fantasy Gameplay</span>
+      <span class="chip chip-dark">Sports Tech</span>
+      <span class="chip chip-dark">MENA Market</span>
+      <span class="chip chip-dark">Community</span>
+    </div>
+
+    <!-- Guest -->
+    <div class="guest-row">
+      <div class="guest-avatar">AE</div>
+      <div class="guest-info">
+        <div class="guest-name">Amr El-Beheiry</div>
+        <div class="guest-role">Co-Founder &amp; CCO · <span>Fanzword</span></div>
+      </div>
+      <div class="with-tag">with</div>
+      <!-- Pressplay Capital logo compact -->
+      <div class="ppc-logo">
+        <svg width="22" height="22" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="10,6 44,25 10,44"
+                   fill="#C75A14"
+                   stroke="#C75A14"
+                   stroke-width="10"
+                   stroke-linejoin="round"
+                   stroke-linecap="round"/>
+        </svg>
+        <div class="ppc-text">
+          <span class="ppc-pressplay" style="font-size:15px;color:rgba(255,255,255,0.8);">Pressplay</span>
+          <span class="ppc-capital" style="font-size:11px;">Capital</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── RIGHT PANEL ── -->
+  <div class="right-panel">
+
+    <!-- Fanzword branding -->
+    <div class="fanzword-block">
+      <!-- Fanzword icon — football + fan energy mark -->
+      <div class="fanzword-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer ring -->
+          <circle cx="20" cy="20" r="17" stroke="#27CD95" stroke-width="1.5" fill="none" opacity="0.35"/>
+          <!-- Inner glow circle -->
+          <circle cx="20" cy="20" r="11" fill="rgba(39,205,149,0.08)"/>
+          <!-- Bold F -->
+          <rect x="12" y="10" width="4" height="20" rx="2" fill="#27CD95"/>
+          <rect x="12" y="10" width="16" height="4" rx="2" fill="#27CD95"/>
+          <rect x="12" y="19" width="12" height="3.5" rx="1.75" fill="#27CD95" opacity="0.65"/>
+          <!-- Star accent -->
+          <circle cx="30" cy="10" r="2.5" fill="#F0A500" opacity="0.8"/>
+        </svg>
+      </div>
+      <div class="fanzword-wordmark">Fanzword</div>
+      <div class="fanzword-tagline">Ignite Your Passion · <span>Win</span></div>
+    </div>
+
+    <!-- Collab divider -->
+    <div class="collab-x">
+      <div class="collab-line"></div>
+      <div class="collab-dot"></div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.14);font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.08em;">FEAT.</div>
+      <div class="collab-dot"></div>
+      <div class="collab-line"></div>
+    </div>
+
+    <!-- Topic feature card -->
+    <div class="feature-card">
+      <div class="fc-label">In This Episode</div>
+      <div class="fc-topics">
+        <div class="fc-topic">Product loop & retention</div>
+        <div class="fc-topic">Prediction game design</div>
+        <div class="fc-topic">Rewards vs. CAC spend</div>
+        <div class="fc-topic">Saudi & Egypt fan behavior</div>
+        <div class="fc-topic">Distribution moat strategy</div>
+      </div>
+    </div>
+
+    <!-- Pressplay Capital footer -->
+    <div class="right-footer">
+      <div class="rf-label">A production by</div>
+      <div class="ppc-logo" style="justify-content:center;">
+        <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="10,6 44,25 10,44"
+                   fill="#C75A14"
+                   stroke="#C75A14"
+                   stroke-width="10"
+                   stroke-linejoin="round"
+                   stroke-linecap="round"/>
+        </svg>
+        <div class="ppc-text">
+          <span class="ppc-pressplay" style="font-size:16px;color:rgba(255,255,255,0.75);">Pressplay</span>
+          <span class="ppc-capital" style="font-size:11px;">Capital</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>
