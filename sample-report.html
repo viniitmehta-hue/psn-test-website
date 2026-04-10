@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSN Post-Campaign Report · Emirates Automotive Group × F1 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --navy: #0A1F6B;
+    --cobalt: #2563EB;
+    --amber: #E8900A;
+    --white: #FFFFFF;
+    --light: #F5F7FA;
+    --mid: #E8ECF4;
+    --text: #1A2340;
+    --muted: #6B7A99;
+    --success: #16A34A;
+  }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--navy);
+    padding: 36px 48px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--amber) 0%, var(--cobalt) 100%);
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+  .psn-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+  .psn-logo span { color: var(--amber); }
+  .psn-tagline {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 3px;
+    font-family: 'DM Mono', monospace;
+  }
+  .doc-meta { text-align: right; }
+  .doc-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .doc-ref {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+  }
+  .report-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+  .report-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+  }
+  .report-subtitle strong { color: var(--amber); font-weight: 600; }
+  .campaign-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+  .tag.amber { border-color: var(--amber); color: var(--amber); }
+
+  /* CONFIDENTIAL STRIP */
+  .confidential {
+    background: var(--amber);
+    padding: 8px 48px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  /* BODY */
+  .body { padding: 40px 48px; }
+
+  /* EXECUTIVE SUMMARY */
+  .exec-summary {
+    background: var(--light);
+    border-left: 4px solid var(--cobalt);
+    padding: 24px 28px;
+    margin-bottom: 40px;
+    border-radius: 0 8px 8px 0;
+  }
+  .exec-summary h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--cobalt);
+    margin-bottom: 10px;
+  }
+  .exec-summary p {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .exec-summary strong { color: var(--navy); font-weight: 600; }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.3px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--mid);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .num {
+    background: var(--navy);
+    color: var(--white);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* KPI GRID */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .kpi-card {
+    background: var(--white);
+    border: 1px solid var(--mid);
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .kpi-card.blue::before { background: var(--cobalt); }
+  .kpi-card.amber::before { background: var(--amber); }
+  .kpi-card.navy::before { background: var(--navy); }
+  .kpi-card.green::before { background: var(--success); }
+  .kpi-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+    margin-top: 8px;
+  }
+  .kpi-number.highlight { color: var(--cobalt); }
+  .kpi-unit {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .kpi-label {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  .kpi-delta {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+  .kpi-delta.up { background: #DCFCE7; color: var(--success); }
+  .kpi-delta.amber { background: #FEF3C7; color: #92400E; }
+
+  /* TWO COL */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  /* PERFORMANCE TABLE */
+  .perf-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+  }
+  .perf-table th {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+  }
+  .perf-table th:last-child { text-align: right; }
+  .perf-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--mid);
+    font-size: 13px;
+    vertical-align: middle;
+  }
+  .perf-table td:last-child { text-align: right; }
+  .perf-table tr:nth-child(even) td { background: var(--light); }
+  .metric-name { font-weight: 600; color: var(--text); }
+  .metric-plan { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 12px; }
+  .metric-actual { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+  .badge.exceed { background: #DCFCE7; color: #166534; }
+  .badge.met { background: #DBEAFE; color: #1D4ED8; }
+
+  /* INSIGHT BOX */
+  .insight-box {
+    background: var(--light);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .insight-box h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .insight-box p { font-size: 13px; color: #444; line-height: 1.6; }
+
+  /* QUOTE */
+  .brand-quote {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .brand-quote::before {
+    content: '"';
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 80px;
+    color: rgba(255,255,255,0.08);
+    position: absolute;
+    top: 10px; left: 24px;
+    line-height: 1;
+  }
+  .brand-quote p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+  .brand-quote .attribution {
+    margin-top: 16px;
+    font-style: normal;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 1px;
+  }
+
+  /* RECOMMENDATIONS */
+  .rec-list { list-style: none; margin-bottom: 40px; }
+  .rec-list li {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--mid);
+    align-items: flex-start;
+  }
+  .rec-list li:last-child { border-bottom: none; }
+  .rec-num {
+    background: var(--cobalt);
+    color: var(--white);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .rec-text strong { display: block; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+  .rec-text span { font-size: 12px; color: var(--muted); }
+
+  /* AUDIENCE BARS */
+  .aud-bar-wrap { margin-bottom: 14px; }
+  .aud-bar-label { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 12px; }
+  .aud-bar-label span:first-child { color: var(--text); font-weight: 500; }
+  .aud-bar-label span:last-child { color: var(--cobalt); font-family: 'DM Mono', monospace; font-weight: 500; }
+  .aud-bar { height: 8px; background: var(--mid); border-radius: 4px; overflow: hidden; }
+  .aud-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--cobalt), #60A5FA); }
+  .aud-bar-fill.amber { background: linear-gradient(90deg, var(--amber), #FCD34D); }
+  .aud-bar-fill.navy { background: linear-gradient(90deg, var(--navy), var(--cobalt)); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    padding: 28px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--white); }
+  .footer-left span { color: var(--amber); }
+  .footer-left .sub { font-size: 11px; color: rgba(255,255,255,0.4); font-family: 'Barlow', sans-serif; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+  .footer-right { text-align: right; font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.8; }
+  .footer-right .amber { color: var(--amber); }
+
+  .section { margin-bottom: 40px; }
+  .divider { height: 1px; background: var(--mid); margin: 32px 0; }
+
+  @media print { body { max-width: 100%; } }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="psn-logo">PRESSPLAY <span>SPORTS</span> NETWORK</div>
+      <div class="psn-tagline">The Sports Business Network</div>
+    </div>
+    <div class="doc-meta">
+      <div class="doc-label">Campaign Report</div>
+      <div class="doc-ref">PSN-REP-2025-F1-001<br>CONFIDENTIAL</div>
+    </div>
+  </div>
+  <div class="report-title">Post-Campaign Performance Report</div>
+  <div class="report-subtitle">
+    <strong>Emirates Automotive Group × India F1 Season Sponsorship</strong><br>
+    Platform: India's #1 Live Sports Streaming App &nbsp;·&nbsp; Campaign Period: Mar – Nov 2025
+  </div>
+  <div class="campaign-tags">
+    <span class="tag amber">PSN Sports Division</span>
+    <span class="tag">Formula 1 · 2025 Season</span>
+    <span class="tag">Pre-roll · L-Band · Branded VOD · CTV</span>
+    <span class="tag">GCC → India Market</span>
+  </div>
+</div>
+
+<div class="confidential">⚠ Confidential · Prepared by Pressplay Sports Network · For Recipient Use Only</div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- EXEC SUMMARY -->
+  <div class="exec-summary">
+    <h3>Executive Summary</h3>
+    <p>
+      This report summarises the full-season sponsorship campaign executed by <strong>Pressplay Sports Network</strong> on behalf of Emirates Automotive Group (EAG) across India's leading live sports streaming platform during the 2025 Formula 1 season. The campaign — PSN's first international brand mandate for this platform — delivered <strong>21.4 million total impressions</strong>, exceeded viewability benchmarks by 23%, and generated a measured brand recall uplift of <strong>+34% among Indian F1 fans aged 25–44</strong>. All primary KPIs were met or exceeded. A renewal at increased investment is recommended for the 2026 season.
+    </p>
+  </div>
+
+  <!-- KPI GRID -->
+  <div class="section">
+    <div class="section-title"><span class="num">1</span> Campaign KPI Scorecard</div>
+    <div class="kpi-grid">
+      <div class="kpi-card blue">
+        <div class="kpi-number highlight">21.4</div>
+        <div class="kpi-unit">Million</div>
+        <div class="kpi-label">Total Season Impressions</div>
+        <span class="kpi-delta up">↑ +7% vs Plan</span>
+      </div>
+      <div class="kpi-card amber">
+        <div class="kpi-number">78%</div>
+        <div class="kpi-label">Avg Viewability Rate</div>
+        <span class="kpi-delta up">↑ +23% vs Benchmark</span>
+      </div>
+      <div class="kpi-card navy">
+        <div class="kpi-number">48</div>
+        <div class="kpi-unit">Min</div>
+        <div class="kpi-label">Avg Watch Time Per Race</div>
+        <span class="kpi-delta amber">On Target</span>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-number">+34%</div>
+        <div class="kpi-label">Brand Recall Uplift<br><small>25–44 Male, Top Cities</small></div>
+        <span class="kpi-delta up">↑ Exceeded</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERFORMANCE TABLE -->
+  <div class="section">
+    <div class="section-title"><span class="num">2</span> Format-by-Format Performance</div>
+    <table class="perf-table">
+      <thead>
+        <tr>
+          <th>Ad Format</th>
+          <th>Planned</th>
+          <th>Delivered</th>
+          <th>Viewability</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="metric-name">Pre-roll (30s)</span><br><span class="metric-plan">Race weekends, all sessions</span></td>
+          <td><span class="metric-plan">8.0 Mn</span></td>
+          <td><span class="metric-actual">8.7 Mn</span></td>
+          <td>82%</td>
+          <td><span class="badge exceed">Exceeded</span></td>
+        </tr>
+        <tr>
+          <td><span class="metric-name">L-Band (10s overlay)</span><br><span class="metric-plan">Live race sessions only</span></td>
+          <td><span class="metric-plan">5.0 Mn</span></td>
+          <td><span class="metric-actual">5.4 Mn</span></td>
+          <td>91%</td>
+          <td><span class="badge exceed">Exceeded</span></td>
+        </tr>
+        <tr>
+          <td><span class="metric-name">Branded VOD Highlights</span><br><span class="metric-plan">Race summary segments</span></td>
+          <td><span class="metric-plan">3.5 Mn</span></td>
+          <td><span class="metric-actual">3.9 Mn</span></td>
+          <td>74%</td>
+          <td><span class="badge exceed">Exceeded</span></td>
+        </tr>
+        <tr>
+          <td><span class="metric-name">Squeeze Screen (CTV)</span><br><span class="metric-plan">Connected TV viewers</span></td>
+          <td><span class="metric-plan">2.5 Mn</span></td>
+          <td><span class="metric-actual">2.4 Mn</span></td>
+          <td>88%</td>
+          <td><span class="badge met">Met</span></td>
+        </tr>
+        <tr>
+          <td><span class="metric-name">Custom Branded Tab</span><br><span class="metric-plan">In-app navigation</span></td>
+          <td><span class="metric-plan">1.0 Mn</span></td>
+          <td><span class="metric-actual">1.0 Mn</span></td>
+          <td>N/A</td>
+          <td><span class="badge met">Met</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- AUDIENCE PROFILE -->
+  <div class="section">
+    <div class="section-title"><span class="num">3</span> Audience Delivery Profile</div>
+    <div class="two-col">
+      <div>
+        <div class="aud-bar-wrap">
+          <div class="aud-bar-label"><span>Male, 25–34 yrs</span><span>38%</span></div>
+          <div class="aud-bar"><div class="aud-bar-fill" style="width:76%"></div></div>
+        </div>
+        <div class="aud-bar-wrap">
+          <div class="aud-bar-label"><span>Male, 35–44 yrs</span><span>29%</span></div>
+          <div class="aud-bar"><div class="aud-bar-fill" style="width:58%"></div></div>
+        </div>
+        <div class="aud-bar-wrap">
+          <div class="aud-bar-label"><span>Male, 18–24 yrs</span><span>23%</span></div>
+          <div class="aud-bar"><div class="aud-bar-fill amber" style="width:46%"></div></div>
+        </div>
+        <div class="aud-bar-wrap">
+          <div class="aud-bar-label"><span>Female, all ages</span><span>10%</span></div>
+          <div class="aud-bar"><div class="aud-bar-fill navy" style="width:20%"></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="aud-bar-wrap">
+          <div class="aud-bar-label"><span>Delhi NCR</span><span>22%</span></div>
+          <div class="aud-bar"><div class="aud-bar-fill" style="width:88%"></div></div>
+        </div>
+        <div class="aud-bar-wrap">
+          <div class="aud-bar-label"><span>Mumbai</span><span>19%</span></div>
+          <div class="aud-bar"><div class="aud-bar-fill" style="width:76%"></div></div>
+        </div>
+        <div class="aud-bar-wrap">
+          <div class="aud-bar-label"><span>Bengaluru</span><span>16%</span></div>
+          <div class="aud-bar"><div class="aud-bar-fill amber" style="width:64%"></div></div>
+        </div>
+        <div class="aud-bar-wrap">
+          <div class="aud-bar-label"><span>Hyderabad + Pune</span><span>14%</span></div>
+          <div class="aud-bar"><div class="aud-bar-fill navy" style="width:56%"></div></div>
+        </div>
+        <div class="aud-bar-wrap">
+          <div class="aud-bar-label"><span>Other Top Cities</span><span>9%</span></div>
+          <div class="aud-bar"><div class="aud-bar-fill" style="width:36%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY INSIGHTS -->
+  <div class="section">
+    <div class="section-title"><span class="num">4</span> Key Campaign Insights</div>
+    <div class="insight-box">
+      <h4>🎯 CTV Over-index Drives Quality</h4>
+      <p>Connected TV viewers accounted for 15% of total reach but delivered 2.3x higher brand recall vs mobile viewers — a strong signal to weight CTV inventory more heavily in the 2026 plan. EAG's creative performed significantly better in the full-screen, lean-back environment.</p>
+    </div>
+    <div class="insight-box">
+      <h4>⚡ Live L-Bands: Highest Attention Moments</h4>
+      <p>L-band overlays during qualifying sessions and race starts achieved 91% viewability — the strongest of all formats. The 7–10 second window aligned precisely with peak fan attention. Recommend extending L-band presence to sprint race weekends in 2026.</p>
+    </div>
+    <div class="insight-box">
+      <h4>📈 Branded VOD: Longer Shelf Life Than Anticipated</h4>
+      <p>Race highlight VOD segments sponsored by EAG were consumed up to 72 hours post-race. This extended the campaign window beyond live viewing and delivered cumulative impressions that were not originally modelled, contributing to the 7% over-delivery on total impressions.</p>
+    </div>
+    <div class="insight-box">
+      <h4>🌍 GCC Audience Crossover Identified</h4>
+      <p>PSN's analytics partnership identified a meaningful cohort of NRI (Non-Resident Indian) viewers consuming the platform from UAE, Qatar, and Saudi Arabia — approximately 4–6% of total reach. This audience represents a compelling segment for EAG given its primary market footprint and warrants a dedicated targeting strategy in the next cycle.</p>
+    </div>
+  </div>
+
+  <!-- BRAND QUOTE -->
+  <div class="brand-quote">
+    <p>PSN made this easy. We had no existing pathway into Indian sports streaming inventory — we didn't know who to call, how to structure a buy, or what formats made sense for our category. PSN handled the brief, the platform relationship, and the reporting. The results exceeded what we projected internally. We're doubling our investment for 2026.</p>
+    <div class="attribution">— VP Marketing, Emirates Automotive Group · Dubai, UAE</div>
+  </div>
+
+  <!-- RECOMMENDATIONS -->
+  <div class="section">
+    <div class="section-title"><span class="num">5</span> PSN Recommendations for 2026</div>
+    <ul class="rec-list">
+      <li>
+        <span class="rec-num">1</span>
+        <div class="rec-text">
+          <strong>Increase CTV Allocation to 25% of Total Buy</strong>
+          <span>CTV delivered 2.3x recall vs mobile. Shifting budget toward CTV will improve brand equity metrics without increasing total investment.</span>
+        </div>
+      </li>
+      <li>
+        <span class="rec-num">2</span>
+        <div class="rec-text">
+          <strong>Extend to Golf & ATP Tour for Cross-Category Reach</strong>
+          <span>EAG's target demographic (affluent male, 30–50) over-indexes on PGA Tour and ATP content on the platform. A cross-sport package would provide year-round brand presence at efficient CPMs.</span>
+        </div>
+      </li>
+      <li>
+        <span class="rec-num">3</span>
+        <div class="rec-text">
+          <strong>Activate NRI Audience Segment (GCC)</strong>
+          <span>The identified NRI crossover audience in UAE and Qatar is highly qualified for EAG. PSN recommends a targeted creative variant for this segment with localised messaging.</span>
+        </div>
+      </li>
+      <li>
+        <span class="rec-num">4</span>
+        <div class="rec-text">
+          <strong>Add Sprint Race Weekend Package</strong>
+          <span>Six sprint race weekends in the 2026 F1 calendar represent high-intensity viewing windows with elevated audience engagement. PSN can negotiate dedicated packages for these dates.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PREPARED BY -->
+  <div style="display:flex; justify-content:space-between; align-items:flex-end; padding-bottom: 8px;">
+    <div>
+      <div style="font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700; color:var(--navy); letter-spacing:0.5px; margin-bottom:4px;">PREPARED BY</div>
+      <div style="font-size:13px; font-weight:600; color:var(--text);">Vinit Mehta</div>
+      <div style="font-size:12px; color:var(--muted);">Founder, Pressplay Sports Network</div>
+      <div style="font-size:12px; color:var(--cobalt); font-family:'DM Mono',monospace; margin-top:2px;">viniitmehta@pressplaycapital.com</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:1px; text-transform:uppercase;">Report Date</div>
+      <div style="font-family:'DM Mono',monospace; font-size:12px; color:var(--navy); margin-top:3px;">December 2025</div>
+      <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); margin-top:6px;">PSN-REP-2025-F1-001</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-left">
+    PRESSPLAY <span>SPORTS</span> NETWORK
+    <div class="sub">The Sports Business Network</div>
+  </div>
+  <div class="footer-right">
+    pressplaysportsnetwork.com<br>
+    <span class="amber">viniitmehta@pressplaycapital.com</span><br>
+    Dubai, UAE · India · MENA · APAC
+  </div>
+</div>
+
+</body>
+</html>
