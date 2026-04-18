@@ -48,8 +48,7 @@
     }
     .nav-logo-play {
       width: 26px; height: 26px;
-      clip-path: polygon(10% 0%, 100% 50%, 10% 100%);
-      background: var(--amber);
+      color: var(--amber);
       flex-shrink: 0;
     }
     .nav-logo-text {
@@ -622,7 +621,9 @@
 <!-- ══════ TOP NAV ══════ -->
 <nav class="top-nav">
   <a href="/" class="nav-logo">
-    <div class="nav-logo-play"></div>
+    <svg class="nav-logo-play" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.7,30 Q16.7,10 34.2,19.7 L70.8,40.3 Q88.3,50 70.8,59.7 L34.2,80.3 Q16.7,90 16.7,70 Z" fill="currentColor"/>
+    </svg>
     <div class="nav-logo-text">
       Pressplay Sports Network
       <span>The sports business network</span>
