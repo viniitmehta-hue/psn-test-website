@@ -83,12 +83,12 @@ body { font-family:'Barlow',sans-serif; color:var(--gray-800); background:#fff; 
   border:3px solid currentColor; padding:10px 18px; border-radius:3px;
   text-decoration:none; flex-shrink:0; width:fit-content; justify-self:start;
 }
-.psn-logo .play { width:32px; height:32px; clip-path:polygon(10% 0%,100% 50%,10% 100%); flex-shrink:0; }
+.psn-logo .play { width:32px; height:32px; flex-shrink:0; }
 .psn-logo .wordmark { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:16px; text-transform:uppercase; letter-spacing:.04em; line-height:1.1; }
 .logo-white { color:#fff; }
-.logo-white .play { background:#fff; }
+.logo-white .play { color:#fff; }
 .logo-blue { color:var(--blue); }
-.logo-blue .play { background:var(--blue); }
+.logo-blue .play { color:var(--blue); }
 
 /* ─── NAV ─── */
 #nav {
@@ -863,7 +863,9 @@ footer {
 <!-- ══════ NAV ══════ -->
 <nav id="nav">
   <a href="#hero" class="psn-logo logo-white">
-    <div class="play"></div>
+    <svg class="play" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.7,30 Q16.7,10 34.2,19.7 L70.8,40.3 Q88.3,50 70.8,59.7 L34.2,80.3 Q16.7,90 16.7,70 Z" fill="currentColor"/>
+    </svg>
     <div class="wordmark">Pressplay Sports<br>Network</div>
   </a>
   <div class="nav-pills">
